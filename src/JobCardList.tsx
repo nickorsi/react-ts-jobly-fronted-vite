@@ -1,13 +1,33 @@
 import React from "react";
 import JobCard from "./JobCard";
+import { JobDataToAPI } from "./api";
 
-function JobCardList() {
+type JobDataFromAPI = {
+    id: number
+} & JobDataToAPI;
+
+type JobsDataFromAPI = JobDataFromAPI[];
+
+
+function JobCardList(jobs: JobsDataFromAPI) {
     return (
         <>
-            <div>JobCardList Component</div>
-            <JobCard></JobCard>
+            {jobs.map((job) => {
+                return (
+                    <JobCard
+                        key={job.id}
+                        id={job.id}
+                        title={job.title}
+                        salary={job.salary}
+                        equity={job.equity}
+                        companyHandle={job.companyHandle}
+                    ></JobCard>
+                )
+            })}
         </>
     )
 }
 
-export default JobCardList;
+export {JobCardList};
+
+export type {JobDataFromAPI}

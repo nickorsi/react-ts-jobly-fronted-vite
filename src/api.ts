@@ -1,6 +1,6 @@
 const BASE_URL:string = import.meta.env.VITE_REACT_APP_BASE_URL || "http://localhost:3001";
 
-type CompanyData = {
+type CompanyDataToAPI = {
   handle?: string,
   name: string,
   description: string,
@@ -8,14 +8,14 @@ type CompanyData = {
   logoURL: string,
 };
 
-type JobData = {
+type JobDataToAPI = {
   title: string,
   salary: number,
   equity: number,
   companyHandle?: string,
 };
 
-type UserData = {
+type UserDataToAPI = {
   username?: string,
   password?: string,
   firstName?: string,
@@ -24,12 +24,12 @@ type UserData = {
   isAdmin?: boolean,
 }
 
-type FilterData = {
+type FilterDataToAPI = {
   nameLike?: string,
   title?: string,
 }
 
-type Data = CompanyData | UserData | JobData | UserData | FilterData | Record<string, never>;
+type Data = CompanyDataToAPI | UserDataToAPI | JobDataToAPI | UserDataToAPI | FilterDataToAPI | Record<string, never>;
 
 /** API Class.
  *
@@ -55,7 +55,7 @@ class JoblyApi {
     };
 
     url.search = (method === "GET")
-      ? new URLSearchParams(data as FilterData).toString()
+      ? new URLSearchParams(data as FilterDataToAPI).toString()
       : "";
 
     // set to undefined since the body property cannot exist on a GET method
@@ -86,4 +86,6 @@ class JoblyApi {
   // obviously, you'll add a lot here ...
 }
 
-export default JoblyApi;
+export { JoblyApi };
+
+export type {JobDataToAPI};

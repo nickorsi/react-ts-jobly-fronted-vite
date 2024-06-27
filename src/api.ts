@@ -83,7 +83,18 @@ class JoblyApi {
     return res.company;
   }
 
-  // obviously, you'll add a lot here ...
+  /** Get details on a company by search term. */
+
+  /** Get details on all companies. */
+
+  /** Get details on a job by search term. */
+
+  /** Get details on all jobs. */
+
+  static async getJobs() {
+    const res = await this.request(`jobs`);
+    return res.jobs;
+  }
 }
 
 export { JoblyApi };

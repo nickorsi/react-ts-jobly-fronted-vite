@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom"
 import Home from "./Home"
 import CompanyList from "./CompanyList"
 import Company from "./Company"
-import JobList from "./JobList"
+import { JobList } from "./JobList"
 import NotFound from "./NotFound"
 
 function RoutesList() {

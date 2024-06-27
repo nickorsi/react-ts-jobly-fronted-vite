@@ -1,5 +1,12 @@
-import { JobDataFromAPI } from "./JobCardList";
+import { JobDataFromAPI } from "./JobList"
 
+/**
+ * JobCard component that renders information about a specific job.
+ *
+ * Takes {id, title, companyHandle, salary, equity} as props
+ *
+ * JobList -> JobCard
+ */
 
 function JobCard ({id, title, companyHandle, salary, equity}: JobDataFromAPI ) {
     return (

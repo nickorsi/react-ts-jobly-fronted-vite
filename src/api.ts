@@ -89,10 +89,17 @@ class JoblyApi {
 
   /** Get details on a job by search term. */
 
-  /** Get details on all jobs. */
+  /**
+   * Get details on jobs based on passed in searchTerm string.
+   * Note: If searchTerm is empty, returns all jobs.
+  */
 
-  static async getJobs() {
-    const res = await this.request(`jobs`);
+  static async getJobs(searchTerm: string = '') {
+    const data:FilterDataToAPI = {};
+    if(searchTerm.length > 0) {
+       data['title'] = searchTerm;
+    }
+    const res = await this.request(`jobs`, data);
     return res.jobs;
   }
 }

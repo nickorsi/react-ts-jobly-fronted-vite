@@ -10,7 +10,7 @@ type JobCardListProps = {
 /**
  * JobCardList componenet renders a list of JobCard components.
  *
- * Takes jobs as a prop [id, title, companyHandle, salary, equity, ...]
+ * Takes jobs as a prop {jobs: [id, title, companyHandle, salary, equity, ...]}
  *
  * {Company, JobList} -> JobCardList -> JobCard
  */

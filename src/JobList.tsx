@@ -29,26 +29,29 @@ type JobsDataFromAPI = JobDataFromAPI[];
 
 function JobList() {
 
-    const [jobsData, setJobsData] = useState<JobsDataFromAPI>([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [jobsData, setJobsData] = useState<JobsDataFromAPI | null>(null);
     const [errors, setErrors] = useState<string[]>([]);
+    const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(function() {
         async function retrieveJobData() {
             let res;
             try {
-                res = await JoblyApi.getJobs();
+                res = await JoblyApi.getJobs(searchTerm);
                 setJobsData(res);
                 setErrors([]);
             } catch (error) {
                 setErrors(error as string[]);
             }
-            setIsLoading(false);
         }
         retrieveJobData();
-    }, []);
+    }, [searchTerm]);
 
-    if(isLoading) {
+    function onSearch(search: string) {
+        setSearchTerm(search);
+    }
+
+    if(jobsData === null) {
         return (
             <h2>Loading...</h2>
         )
@@ -69,9 +72,15 @@ function JobList() {
 
     return (
         <>
-            <SearchForm></SearchForm>
-            <div>JobList Componenet</div>
-            <JobCardList jobs={jobsData}></JobCardList>
+            <SearchForm initialSearchTerm={searchTerm} onSearch={onSearch}/>
+            {searchTerm.length > 0 ?
+                <p>Search results for "{searchTerm}"</p> :
+                <p>All Jobs</p>
+            }
+            {jobsData.length > 0 ?
+                <JobCardList jobs={jobsData}></JobCardList> :
+                <p>Sorry, no results found!</p>
+            }
         </>
     )
 }

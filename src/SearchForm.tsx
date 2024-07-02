@@ -2,14 +2,14 @@ import React, { useState } from "react";
 
 
 type SearchFormProps = {
-    // initialSearchTerm: string,
     onSearch: ((param:string) => void),
 }
 /**
  * SearchForm component used to hold a simple text input and button.
  *
- * Takes prop to {initialSearchTerm, onSearch} that is the text in the input
- * and the function to run when the user searches.
+ * Takes a callback function onSearch that runs when the user searches. Note the
+ * actually search work does not happen in this component, it just retains the
+ * state for the search term and passes it upstream.
  *
  * {JobList, CompanyList} -> SearchForm
  */

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { JobCardList } from "./JobCardList";
 import SearchForm from "./SearchForm";
 import { JobDataToAPI, JoblyApi } from "./api";
@@ -9,15 +9,6 @@ type JobDataFromAPI = {
 
 type JobsDataFromAPI = JobDataFromAPI[];
 
-// type JobsDataState = {
-//     jobs: JobsDataFromAPI,
-//     isLoading: boolean
-// }
-
-// const initialJobsData: JobsDataState = {
-//     jobs: [],
-//     isLoading: true
-// };
 /**
  * JobList container renders descendent componenets related to jobs and holds
  * data related to jobs in state. Retrieves data on mount.
@@ -72,7 +63,7 @@ function JobList() {
 
     return (
         <>
-            <SearchForm initialSearchTerm={searchTerm} onSearch={onSearch}/>
+            <SearchForm onSearch={onSearch}/>
             {searchTerm.length > 0 ?
                 <p>Search results for "{searchTerm}"</p> :
                 <p>All Jobs</p>

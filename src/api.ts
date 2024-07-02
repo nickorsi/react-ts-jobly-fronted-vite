@@ -83,11 +83,11 @@ class JoblyApi {
     return res.company;
   }
 
-  /** Get details on a company by search term. */
 
-  /** Get details on all companies. */
-
-  /** Get details on a job by search term. */
+  /**
+   * Get details on companies based on passed in searchTerm string.
+   * Note: If searchTerm is empty, returns all companies.
+  */
 
   /**
    * Get details on jobs based on passed in searchTerm string.
@@ -104,6 +104,6 @@ class JoblyApi {
   }
 }
 
-export { JoblyApi };
+export { JoblyApi, BASE_URL };
 
-export type {JobDataToAPI};
+export type {JobDataToAPI, CompanyDataToAPI};

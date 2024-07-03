@@ -1,7 +1,7 @@
 import {useState, useEffect } from "react";
 import CompanyCard from "./CompanyCard";
 import SearchForm from "./SearchForm";
-import { CompanyDataToAPI } from "./api";
+import { CompanyDataToAPI, JoblyApi } from "./api";
 
 type CompanyDataFromAPI = Omit<CompanyDataToAPI, 'handle'> & Required<Pick<CompanyDataToAPI, 'handle'>>;
 
@@ -17,29 +17,30 @@ type CompaniesDataFromAPI = CompanyDataFromAPI[];
  * RoutesList -> CompanyList -> { SearchForm, CompanyCard }
  */
 function CompanyList() {
-    const [companiesData, setcompaniesData] = useState<CompaniesDataFromAPI | null>(null);
+    const [companiesData, setCompaniesData] = useState<CompaniesDataFromAPI | null>(null);
     const [errors, setErrors] = useState<string[]>([]);
     const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(function() {
-        async function retrieveJobData() {
-            let res;
+        async function retrieveCompanyData() {
+            let companies;
             try {
-                res = await JoblyApi.getJobs(searchTerm);
-                setJobsData(res);
+                companies = await JoblyApi.getCompanies(searchTerm);
+                console.log("companies=", companies);
+                setCompaniesData(companies);
                 setErrors([]);
             } catch (error) {
                 setErrors(error as string[]);
             }
         }
-        retrieveJobData();
+        retrieveCompanyData();
     }, [searchTerm]);
 
     function onSearch(search: string) {
         setSearchTerm(search);
     }
 
-    if(jobsData === null) {
+    if(companiesData === null) {
         return (
             <h2>Loading...</h2>
         )
@@ -63,10 +64,22 @@ function CompanyList() {
             <SearchForm onSearch={onSearch}/>
             {searchTerm.length > 0 ?
                 <p>Search results for "{searchTerm}"</p> :
-                <p>All Jobs</p>
+                <p>All Companies</p>
             }
-            {jobsData.length > 0 ?
-                <JobCardList jobs={jobsData}></JobCardList> :
+            {companiesData.length > 0 ?
+                companiesData.map((company, i)=>{
+                    console.log('company.logoURL=', company.logoUrl)
+                    return (
+                        <CompanyCard
+                            key={`${i}`}
+                            handle={`${company.handle}`}
+                            name={`${company.name}`}
+                            description={`${company.description}`}
+                            logoUrl={`${company.logoUrl}`}
+                            numEmployees={company.numEmployees}
+                        />
+                    )
+                }) :
                 <p>Sorry, no results found!</p>
             }
         </>

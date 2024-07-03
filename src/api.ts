@@ -5,7 +5,7 @@ type CompanyDataToAPI = {
   name: string,
   description: string,
   numEmployees: number,
-  logoURL: string,
+  logoUrl: string,
 };
 
 type JobDataToAPI = {

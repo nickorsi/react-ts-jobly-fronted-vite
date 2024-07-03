@@ -9,14 +9,25 @@ import { CompanyDataFromAPI } from "./CompanyList";
  * CompanyList -> CompanyCard
  */
 function CompanyCard(
-    {handle, name, description, logoURL}: CompanyDataFromAPI
+    {handle, name, description, logoUrl}: CompanyDataFromAPI
 ) {
+    console.debug(
+        'CompanyCard',
+        'handle=',
+        handle,
+        'name=',
+        name,
+        'description=',
+        description,
+        'logoURL',
+        logoUrl
+    )
     return (
         <a href={`companies/${handle}`}>
             <div className="company-card">
                 <div className="company-titles">
                     <p>{ name }</p>
-                    <img src={`${logoURL}`} alt="company logo" />
+                    <img src={`${logoUrl}`} alt="company logo" />
                 </div>
                 <div className="company-info">
                     <p>{ description }</p>

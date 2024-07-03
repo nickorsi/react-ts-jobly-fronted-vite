@@ -11,7 +11,7 @@ type CompanyDataToAPI = {
 type JobDataToAPI = {
   title: string,
   salary: number,
-  equity: number,
+  equity: string,
   companyHandle?: string,
 };
 
@@ -83,11 +83,19 @@ class JoblyApi {
     return res.company;
   }
 
-
   /**
    * Get details on companies based on passed in searchTerm string.
    * Note: If searchTerm is empty, returns all companies.
   */
+
+  static async getCompanies(searchTerm: string = '') {
+    const data:FilterDataToAPI = {};
+    if(searchTerm.length > 0) {
+       data['nameLike'] = searchTerm;
+    }
+    const res = await this.request(`companies`, data);
+    return res.companies;
+  }
 
   /**
    * Get details on jobs based on passed in searchTerm string.

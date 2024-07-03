@@ -70,7 +70,7 @@ function JobList() {
             }
             {jobsData.length > 0 ?
                 <JobCardList jobs={jobsData}></JobCardList> :
-                <p>Sorry, no results found!</p>
+                <p>Sorry, no results were found!</p>
             }
         </>
     )

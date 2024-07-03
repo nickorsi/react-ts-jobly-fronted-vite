@@ -5,25 +5,29 @@ import {
   beforeEach,
   afterAll,
   afterEach,
-  expect} from "vitest";
+  expect,
+} from "vitest";
 
 import { mockAPI, mockServer } from "./apiMock";
 import { BASE_URL, JoblyApi } from "./api";
+import { CompaniesDataFromAPI } from "./CompanyList";
+import { SpecificCompanyDataFromAPI } from "./Company";
+import { JobsDataFromAPI } from "./JobList";
 
-beforeAll(()=>{
+beforeAll(function(){
   mockServer.listen();
 })
-afterEach(()=>{
+afterEach(function(){
   mockServer.resetHandlers();
 })
-afterAll(()=>{
+afterAll(function(){
   mockServer.close();
 })
 
-describe("test company routes", ()=>{
-  let allCompaniesResponse;
-  let filteredCompaniesResponse;
-  let singleCompaniesResponse;
+describe("Test company routes", function(){
+  let allCompaniesResponse: {companies: CompaniesDataFromAPI} | undefined;
+  let filteredCompaniesResponse: {companies: CompaniesDataFromAPI} | undefined;
+  let singleCompaniesResponse: {company: SpecificCompanyDataFromAPI} | undefined;
 
   beforeEach(()=>{
     allCompaniesResponse = {
@@ -34,8 +38,182 @@ describe("test company routes", ()=>{
           description: "Description 1",
           numEmployees: 1,
           logoURL: 'http://c1.img',
-        }
+        },
+        {
+          handle: 'c2',
+          name: 'Company 2',
+          description: "Description 2",
+          numEmployees: 2,
+          logoURL: 'http://c2.img',
+        },
+        {
+          handle: 'c3',
+          name: 'Company 3',
+          description: "Description 3",
+          numEmployees: 3,
+          logoURL: 'http://c3.img',
+        },
+      ]
+    };
+    filteredCompaniesResponse = {
+      companies:  [
+        {
+          handle: 'c1',
+          name: 'Company 1',
+          description: "Description 1",
+          numEmployees: 1,
+          logoURL: 'http://c1.img',
+        },
+      ]
+    };
+    singleCompaniesResponse = {
+      company: {
+        handle: 'c1',
+        name: 'Company 1',
+        description: "Description 1",
+        numEmployees: 1,
+        logoURL: 'http://c1.img',
+        jobs: [
+          {
+            id: 1,
+            title: 'Job 1',
+            salary: 1,
+            equity: '1'
+          }
+        ]
+      }
+    };
+  });
+  test("Get all companies", async function(){
+    mockAPI(
+      'get',
+      `${BASE_URL}/companies`,
+      allCompaniesResponse as {companies: CompaniesDataFromAPI}
+    );
+    const companies = await JoblyApi.getCompanies();
+
+    expect(companies).toEqual(allCompaniesResponse?.companies);
+    expect(companies.length).toEqual(3);
+  });
+  test("Get filtered companies", async function(){
+    mockAPI(
+      'get',
+      `${BASE_URL}/companies?nameLike=c1`,
+      filteredCompaniesResponse as {companies: CompaniesDataFromAPI}
+    );
+    const companies = await JoblyApi.getCompanies('c1');
+
+    expect(companies).toEqual([{
+      handle: 'c1',
+      name: 'Company 1',
+      description: "Description 1",
+      numEmployees: 1,
+      logoURL: 'http://c1.img',
+    }]);
+    expect(companies.length).toEqual(1);
+  });
+  test("No matches for company filter", async function() {
+    mockAPI(
+      'get',
+      `${BASE_URL}/companies?nameLike=test`,
+      {companies: []}
+    );
+    const companies = await JoblyApi.getCompanies('test');
+
+    expect(companies).toEqual([]);
+    expect(companies.length).toEqual(0);
+  })
+  test("Get company by handle", async function(){
+    mockAPI(
+      'get',
+      `${BASE_URL}/companies/c1`,
+      singleCompaniesResponse as {company: SpecificCompanyDataFromAPI}
+    );
+    const specificCompany = await JoblyApi.getCompany('c1');
+
+    expect(specificCompany).toEqual(singleCompaniesResponse?.company);
+  });
+})
+
+describe("Test jobs routes", function() {
+  let allJobsResponse: {jobs: JobsDataFromAPI} | undefined;
+  let filteredJobsResponse: {jobs: JobsDataFromAPI} | undefined;
+
+  beforeEach(function() {
+    allJobsResponse = {
+      jobs: [
+        {
+          id: 1,
+          title: 'Job 1',
+          salary: 1,
+          equity: '1',
+          companyHandle: 'c1',
+        },
+        {
+          id: 2,
+          title: 'Job 2',
+          salary: 2,
+          equity: '2',
+          companyHandle: 'c2',
+        },
+        {
+          id: 3,
+          title: 'Job 3',
+          salary: 3,
+          equity: '3',
+          companyHandle: 'c3',
+        },
       ]
     }
+    filteredJobsResponse = {
+      jobs: [
+        {
+          id: 1,
+          title: 'Job 1',
+          salary: 1,
+          equity: '1',
+          companyHandle: 'c1',
+        },
+      ]
+    }
+  });
+  test("Get all jobs", async function() {
+    mockAPI(
+      'get',
+      `${BASE_URL}/jobs`,
+      allJobsResponse as {jobs: JobsDataFromAPI}
+    )
+    const jobs = await JoblyApi.getJobs();
+
+    expect(jobs).toEqual(allJobsResponse?.jobs);
+    expect(jobs.length).toEqual(3);
   })
-})
+  test("Get filtered jobs", async function() {
+    mockAPI(
+      'get',
+      `${BASE_URL}/jobs?title=Job%201`,
+      filteredJobsResponse as {jobs: JobsDataFromAPI}
+    )
+    const jobs = await JoblyApi.getJobs('Job 1');
+
+    expect(jobs).toEqual([{
+      id: 1,
+      title: 'Job 1',
+      salary: 1,
+      equity: '1',
+      companyHandle: 'c1',
+    }]);
+    expect(jobs.length).toEqual(1);
+  })
+  test("No matches for jobs filter", async function() {
+    mockAPI(
+      'get',
+      `${BASE_URL}/jobs?title=test`,
+      {jobs: []}
+    )
+    const jobs = await JoblyApi.getJobs('test');
+
+    expect(jobs).toEqual([]);
+    expect(jobs.length).toEqual(0);
+  })
+});

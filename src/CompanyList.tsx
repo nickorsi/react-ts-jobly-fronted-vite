@@ -9,7 +9,7 @@ type CompanyDataFromAPI = Omit<CompanyDataToAPI, 'handle'> & Required<Pick<Compa
 type CompaniesDataFromAPI = CompanyDataFromAPI[];
 
 /**
- * CompanyList container renders descendent componenets related to companies
+ * CompanyList componenet renders descendent componenets related to companies
  * and holds data related to companies in state. Retrieves data on mount.
  *
  * Rendered by RoutesList on /companies

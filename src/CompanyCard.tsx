@@ -25,9 +25,13 @@ function CompanyCard(
     return (
         <a href={`companies/${handle}`}>
             <div className="company-card">
-                <div className="company-titles">
+                <div className="company-brand">
                     <p>{ name }</p>
-                    <img src={`${logoUrl}`} alt="company logo" />
+                    {
+                        logoUrl === 'null' ?
+                        null :
+                        <img src={`${logoUrl}`} alt="company logo" />
+                    }
                 </div>
                 <div className="company-info">
                     <p>{ description }</p>

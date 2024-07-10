@@ -1,3 +1,7 @@
+.roles h3 {
+  text-align: center;
+}
+
 .company-info p {
   font-size: 1.1rem;
   margin-top: 10px;
@@ -26,4 +30,9 @@
   width: 150px;
   border: solid black 2px;
   border-radius: 5px;
+}
+
+.company-container {
+  width: 100%;
+  max-width: 1000px;
 }

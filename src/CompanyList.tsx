@@ -12,7 +12,7 @@ type CompaniesDataFromAPI = CompanyDataFromAPI[];
  * CompanyList componenet renders descendent componenets related to companies
  * and holds data related to companies in state. Retrieves data on mount.
  *
- * Rendered by RoutesList on /companies
+ * Rendered by RoutesList on the /companies path
  *
  * RoutesList -> CompanyList -> { SearchForm, CompanyCard }
  */
@@ -40,12 +40,6 @@ function CompanyList() {
         setSearchTerm(search);
     }
 
-    if(companiesData === null) {
-        return (
-            <h2>Loading...</h2>
-        )
-    }
-
     if(errors.length > 0) {
         return (
             <>
@@ -58,6 +52,13 @@ function CompanyList() {
             </>
         )
     }
+
+    if(companiesData === null) {
+        return (
+            <h2>Loading...</h2>
+        )
+    }
+
 
     return (
         <>

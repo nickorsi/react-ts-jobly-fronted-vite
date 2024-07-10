@@ -13,7 +13,7 @@ type JobsDataFromAPI = JobDataFromAPI[];
  * JobList container renders descendent componenets related to jobs and holds
  * data related to jobs in state. Retrieves data on mount.
  *
- * Rendered by RoutesList on /jobs
+ * Rendered by RoutesList on the /jobs path
  *
  * RoutesList -> JobList -> { SearchForm, JobCardList }
  */
@@ -42,12 +42,6 @@ function JobList() {
         setSearchTerm(search);
     }
 
-    if(jobsData === null) {
-        return (
-            <h2>Loading...</h2>
-        )
-    }
-
     if(errors.length > 0) {
         return (
             <>
@@ -60,6 +54,13 @@ function JobList() {
             </>
         )
     }
+
+    if(jobsData === null) {
+        return (
+            <h2>Loading...</h2>
+        )
+    }
+
 
     return (
         <>

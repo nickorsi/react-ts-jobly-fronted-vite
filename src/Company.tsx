@@ -4,6 +4,7 @@ import { CompanyDataFromAPI } from "./CompanyList";
 import { JobsDataFromAPI } from "./JobList";
 import { JobCardList } from "./JobCardList";
 import { JoblyApi } from "./api";
+import './Company.css';
 
 type SpecificCompanyDataFromAPI = CompanyDataFromAPI & {jobs: JobsDataFromAPI}
 
@@ -12,7 +13,7 @@ type SpecificCompanyDataFromAPI = CompanyDataFromAPI & {jobs: JobsDataFromAPI}
  * componenets related to jobs associated with the company. Holds data related
  * to the company in state. Retrieves data on mount.
  *
- * Rendered by RoutesList on /companies/:companyHandle
+ * Rendered by RoutesList on the /companies/:companyHandle path
  *
  * RoutesList -> Company -> JobList
  */
@@ -34,12 +35,6 @@ function Company() {
         getCompanyData(companyHandle as string);
     }, []);
 
-    if(companyData === null) {
-        return (
-            <h2>Loading...</h2>
-        )
-    }
-
     if(errors.length > 0) {
         return (
             <>
@@ -53,10 +48,26 @@ function Company() {
         )
     }
 
+    if(companyData === null) {
+        return (
+            <h2>Loading...</h2>
+        )
+    }
+
+
     return (
-        <div>
-            <h2>{companyData.name}</h2>
-            <p>{companyData.description}</p>
+        <div className='company-container'>
+            <div className='company-info card'>
+                <div className="company-brand">
+                    <h2>{ companyData.name }</h2>
+                    {
+                        companyData.logoUrl === 'null' ?
+                        null :
+                        <img src={`${companyData.logoUrl}`} alt="company logo" />
+                    }
+                </div>
+                <p>{companyData.description}</p>
+            </div>
             <JobCardList jobs={companyData.jobs}></JobCardList>
         </div>
     )

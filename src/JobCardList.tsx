@@ -1,6 +1,6 @@
 import JobCard from "./JobCard";
 import { JobsDataFromAPI } from "./JobList";
-
+import './JobCardList.css';
 
 type JobCardListProps = {
     jobs: JobsDataFromAPI
@@ -16,7 +16,7 @@ type JobCardListProps = {
 
 function JobCardList({jobs}: JobCardListProps) {
     return (
-        <>
+        <div className="jobcardlist-continaer">
             {jobs.map((job) => {
                 return (
                     <JobCard
@@ -26,10 +26,11 @@ function JobCardList({jobs}: JobCardListProps) {
                         salary={job.salary}
                         equity={job.equity}
                         companyHandle={job.companyHandle}
+                        companyName={job.companyName}
                     ></JobCard>
                 )
             })}
-        </>
+        </div>
     )
 }
 

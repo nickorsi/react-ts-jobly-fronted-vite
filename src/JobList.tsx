@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import { JobCardList } from "./JobCardList";
 import SearchForm from "./SearchForm";
 import { JobDataToAPI, JoblyApi } from "./api";
+import './JobList.css';
 
 type JobDataFromAPI = {
-    id: number
+    id: number,
+    companyName: string
 } & JobDataToAPI;
 
 type JobsDataFromAPI = JobDataFromAPI[];
@@ -63,7 +65,7 @@ function JobList() {
 
 
     return (
-        <>
+        <div className='joblist-container'>
             <SearchForm onSearch={onSearch}/>
             {searchTerm.length > 0 ?
                 <p>Search results for "{searchTerm}"</p> :
@@ -73,7 +75,7 @@ function JobList() {
                 <JobCardList jobs={jobsData}></JobCardList> :
                 <p>Sorry, no results were found!</p>
             }
-        </>
+        </div>
     )
 }
 

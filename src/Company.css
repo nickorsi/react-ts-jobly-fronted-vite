@@ -1,0 +1,17 @@
+.company-brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card {
+  background-image: linear-gradient(hsl(0, 0%, 100%), hsl(0, 0%, 90%));
+  border: solid 2px black;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 15px;
+}
+
+.company-info p {
+  font-size: 1.1rem;
+}

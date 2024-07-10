@@ -68,7 +68,13 @@ function Company() {
                 </div>
                 <p>{companyData.description}</p>
             </div>
-            <JobCardList jobs={companyData.jobs}></JobCardList>
+            <div className='roles card'>
+                <h3>Open Positions</h3>
+                {companyData.jobs.length > 0 ?
+                    <JobCardList jobs={companyData.jobs}></JobCardList> :
+                    <p>Sorry, there are no open roles at this time. </p>
+                }
+            </div>
         </div>
     )
 }

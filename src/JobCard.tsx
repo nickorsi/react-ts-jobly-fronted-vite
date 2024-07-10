@@ -1,23 +1,24 @@
 import { JobDataFromAPI } from "./JobList"
+import './JobCard.css';
 
 /**
  * JobCard component that renders information about a specific job.
  *
- * Takes {id, title, companyHandle, salary, equity} as props
+ * Takes {id, title, companyName, companyHandle salary, equity} as props
  *
  * JobList -> JobCard
  */
 
-function JobCard ({id, title, companyHandle, salary, equity}: JobDataFromAPI ) {
+function JobCard ({id, title, companyName, salary, equity}: JobDataFromAPI ) {
     return (
-        <div id={`${id}`}>
+        <div id={`${id}`} className="job card">
             <div className="job-titles">
-                <p>{ title }</p>
-                <p>{ companyHandle }</p>
+                <p className='job-title'>{ title }</p>
+                <p className='job-company'>{ companyName }</p>
             </div>
             <div className="job-pay-info">
-                <p>{ salary }</p>
-                <p>{ equity }</p>
+                <p className='job-salary'>Salary: { salary }</p>
+                <p className='job-equity'>Equity: { equity }</p>
             </div>
         </div>
     )

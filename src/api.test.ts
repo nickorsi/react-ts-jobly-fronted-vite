@@ -37,21 +37,21 @@ describe("Test company routes", function(){
           name: 'Company 1',
           description: "Description 1",
           numEmployees: 1,
-          logoURL: 'http://c1.img',
+          logoUrl: 'http://c1.img',
         },
         {
           handle: 'c2',
           name: 'Company 2',
           description: "Description 2",
           numEmployees: 2,
-          logoURL: 'http://c2.img',
+          logoUrl: 'http://c2.img',
         },
         {
           handle: 'c3',
           name: 'Company 3',
           description: "Description 3",
           numEmployees: 3,
-          logoURL: 'http://c3.img',
+          logoUrl: 'http://c3.img',
         },
       ]
     };
@@ -62,7 +62,7 @@ describe("Test company routes", function(){
           name: 'Company 1',
           description: "Description 1",
           numEmployees: 1,
-          logoURL: 'http://c1.img',
+          logoUrl: 'http://c1.img',
         },
       ]
     };
@@ -72,13 +72,14 @@ describe("Test company routes", function(){
         name: 'Company 1',
         description: "Description 1",
         numEmployees: 1,
-        logoURL: 'http://c1.img',
+        logoUrl: 'http://c1.img',
         jobs: [
           {
             id: 1,
             title: 'Job 1',
             salary: 1,
-            equity: '1'
+            equity: '1',
+            companyName: 'Company 1',
           }
         ]
       }
@@ -98,7 +99,7 @@ describe("Test company routes", function(){
   test("Get filtered companies", async function(){
     mockAPI(
       'get',
-      `${BASE_URL}/companies?nameLike=c1`,
+      `${BASE_URL}/companies`, // Removed the query in the URL per suggestion from stderror message in the terminal from msw
       filteredCompaniesResponse as {companies: CompaniesDataFromAPI}
     );
     const companies = await JoblyApi.getCompanies('c1');
@@ -108,14 +109,14 @@ describe("Test company routes", function(){
       name: 'Company 1',
       description: "Description 1",
       numEmployees: 1,
-      logoURL: 'http://c1.img',
+      logoUrl: 'http://c1.img',
     }]);
     expect(companies.length).toEqual(1);
   });
   test("No matches for company filter", async function() {
     mockAPI(
       'get',
-      `${BASE_URL}/companies?nameLike=test`,
+      `${BASE_URL}/companies`, // Removed the query in the URL per suggestion from stderror message in the terminal from msw
       {companies: []}
     );
     const companies = await JoblyApi.getCompanies('test');
@@ -148,6 +149,7 @@ describe("Test jobs routes", function() {
           salary: 1,
           equity: '1',
           companyHandle: 'c1',
+          companyName: 'Company 1',
         },
         {
           id: 2,
@@ -155,6 +157,7 @@ describe("Test jobs routes", function() {
           salary: 2,
           equity: '2',
           companyHandle: 'c2',
+          companyName: 'Company 2',
         },
         {
           id: 3,
@@ -162,6 +165,7 @@ describe("Test jobs routes", function() {
           salary: 3,
           equity: '3',
           companyHandle: 'c3',
+          companyName: 'Company 3',
         },
       ]
     }
@@ -173,6 +177,7 @@ describe("Test jobs routes", function() {
           salary: 1,
           equity: '1',
           companyHandle: 'c1',
+          companyName: 'Company 1',
         },
       ]
     }
@@ -191,7 +196,7 @@ describe("Test jobs routes", function() {
   test("Get filtered jobs", async function() {
     mockAPI(
       'get',
-      `${BASE_URL}/jobs?title=Job%201`,
+      `${BASE_URL}/jobs`, // Removed the query in the URL per suggestion from stderror message in the terminal from msw
       filteredJobsResponse as {jobs: JobsDataFromAPI}
     )
     const jobs = await JoblyApi.getJobs('Job 1');
@@ -202,13 +207,14 @@ describe("Test jobs routes", function() {
       salary: 1,
       equity: '1',
       companyHandle: 'c1',
+      companyName: 'Company 1',
     }]);
     expect(jobs.length).toEqual(1);
   })
   test("No matches for jobs filter", async function() {
     mockAPI(
       'get',
-      `${BASE_URL}/jobs?title=test`,
+      `${BASE_URL}/jobs`, // Removed the query in the URL per suggestion from stderror message in the terminal from msw
       {jobs: []}
     )
     const jobs = await JoblyApi.getJobs('test');

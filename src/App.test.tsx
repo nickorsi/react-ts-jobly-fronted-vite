@@ -107,6 +107,7 @@ it("can be navigated by the user", async function () {
     expect(container.querySelectorAll(".job.card")[1]).toContainHTML("Job 2");
     expect(container.querySelectorAll(".job.card")[2]).toContainHTML("Job 3");
 
+    // TODO: Add tests for navigation to companies and company page.
 
 
 })

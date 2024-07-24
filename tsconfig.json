@@ -7,5 +7,12 @@
     {
       "path": "./tsconfig.node.json"
     }
-  ]
+  ],
+  "compilerOptions": {
+    "types": ["vitest", "jest", "@testing-library/jest-dom"],
+  },
+  "include": [
+    "./jest-setup.ts",
+    "./vitest.d.ts"
+  ],
 }

@@ -15,6 +15,7 @@ function NavBar() {
                                 "active navbar-brand ms-3" :
                                 "navbar-brand ms-3"
                     }
+                    data-testid="home-nav-button"
                 >
                     Jobly 💼
                 </NavLink>
@@ -37,6 +38,7 @@ function NavBar() {
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "active" : ""
                                 }
+                                data-testid="copmanies-nav-button"
                             >
                                 Companies
                             </NavLink>
@@ -47,6 +49,7 @@ function NavBar() {
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "active" : ""
                                 }
+                                data-testid="jobs-nav-button"
                             >
                                 Jobs
                             </NavLink>

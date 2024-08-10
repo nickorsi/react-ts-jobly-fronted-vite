@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './SearchForm.css';
 
 
 type SearchFormProps = {
@@ -22,15 +23,19 @@ function SearchForm({onSearch}: SearchFormProps) {
         onSearch(searchTerm.trim());
     }
     return (
-        <div>
-            <form action="GET" >
+        <div className="search-bar">
+            <form action="GET" className="search-bar-form">
                 <input
                     type="text"
                     placeholder="Enter a search term..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
-                <button type="submit" onClick={handleSearch}>Search</button>
+                <button
+                    className="btn btn-primary"
+                    type="submit"
+                    onClick={handleSearch}
+                >Search</button>
             </form>
         </div>
     )

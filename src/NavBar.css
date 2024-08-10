@@ -1,8 +1,9 @@
 .navbar {
-  background-image: linear-gradient(hsl(0, 0%, 100%), hsl(0, 0%, 90%));
+  background-color: white;
   position: fixed;
   width: 100%;
   z-index: 1000;
+  border-bottom: 2px solid black;
 }
 
 .navbar div {

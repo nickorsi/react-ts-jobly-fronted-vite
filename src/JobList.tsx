@@ -67,13 +67,15 @@ function JobList() {
     return (
         <div className='joblist-container'>
             <SearchForm onSearch={onSearch}/>
-            {searchTerm.length > 0 ?
-                <p>Search results for "{searchTerm}"</p> :
-                <p>All Jobs</p>
-            }
+            <h1>
+                {searchTerm.length > 0 ?
+                    `Search results for ${searchTerm}` :
+                    "All Jobs"
+                }
+            </h1>
             {jobsData.length > 0 ?
                 <JobCardList jobs={jobsData}></JobCardList> :
-                <p>Sorry, no results were found!</p>
+                <p className="no-results">Sorry, no results were found!</p>
             }
         </div>
     )

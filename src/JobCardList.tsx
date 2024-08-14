@@ -1,6 +1,5 @@
 import JobCard from "./JobCard";
 import { JobsDataFromAPI } from "./JobList";
-import './JobCardList.css';
 
 type JobCardListProps = {
     jobs: JobsDataFromAPI

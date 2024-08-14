@@ -1,11 +1,17 @@
-.roles h3 {
-  text-align: center;
+.company-container {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.company-info h1 {
+  font-size: 2rem;
 }
 
 .company-info p {
   font-size: 1.1rem;
   margin-top: 10px;
 }
+
 .card {
   background-color: white;
   border-radius: 10px;
@@ -26,12 +32,22 @@
 }
 
 .company-brand img {
-  width: 150px;
+  width: 100px;
   border: solid black 2px;
   border-radius: 5px;
 }
 
-.company-container {
-  width: 100%;
-  max-width: 1000px;
+.company-container h2 {
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 5px rgb(52, 48, 47);
+  font-weight: 700;
+  font-size: 50px;
+}
+
+.no-results {
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 40px;
 }

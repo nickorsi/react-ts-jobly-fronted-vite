@@ -50,7 +50,9 @@ function Company() {
 
     if(companyData === null) {
         return (
-            <h2>Loading...</h2>
+            <div className="spinner-border text-primary" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </div>
         )
     }
 
@@ -59,22 +61,20 @@ function Company() {
         <div className='company-container'>
             <div className='company-info card'>
                 <div className="company-brand">
-                    <h2>{ companyData.name }</h2>
+                    <h1>{ companyData.name }</h1>
                     {
-                        companyData.logoUrl === 'null' ?
+                        companyData.logoUrl === null ? //comparing to null object
                         null :
                         <img src={`${companyData.logoUrl}`} alt="company logo" />
                     }
                 </div>
                 <p>{companyData.description}</p>
             </div>
-            <div className='roles card'>
-                <h3>Open Positions</h3>
-                {companyData.jobs.length > 0 ?
-                    <JobCardList jobs={companyData.jobs}></JobCardList> :
-                    <p>Sorry, there are no open roles at this time. </p>
-                }
-            </div>
+            <h2>Open Positions</h2>
+            {companyData.jobs.length > 0 ?
+                <JobCardList jobs={companyData.jobs}></JobCardList> :
+                <p className="no-results">Sorry, there are no open roles at this time. </p>
+            }
         </div>
     )
 }

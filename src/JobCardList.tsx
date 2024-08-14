@@ -16,7 +16,7 @@ type JobCardListProps = {
 
 function JobCardList({jobs}: JobCardListProps) {
     return (
-        <div className="jobcardlist-continaer">
+        <>
             {jobs.map((job) => {
                 return (
                     <JobCard
@@ -30,7 +30,7 @@ function JobCardList({jobs}: JobCardListProps) {
                     ></JobCard>
                 )
             })}
-        </div>
+        </>
     )
 }
 

@@ -13,8 +13,8 @@ function JobCard ({id, title, companyName, salary, equity}: JobDataFromAPI ) {
     return (
         <div id={`${id}`} className="job card">
             <div className="job-titles">
-                <p className='job-title'>{ title }</p>
-                <p className='job-company'>{ companyName }</p>
+                <p>Job Title: <span className='job-title'>{ title }</span></p>
+                <p className='job-company'>Company: { companyName }</p>
             </div>
             <div className="job-pay-info">
                 <p className='job-salary'>Salary: { salary }</p>

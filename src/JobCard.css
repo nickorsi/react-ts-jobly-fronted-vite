@@ -6,6 +6,18 @@
   margin: 15px;
 }
 
+.job-pay-info {
+  margin-top: 15px;
+}
+
+.job-titles p, .job-pay-info p {
+  margin-bottom: 0;
+}
+
 .job-title {
   font-weight: bold;
 }
+
+
+
+

@@ -1,5 +1,7 @@
 import React from "react";
 import { CompanyDataFromAPI } from "./CompanyList";
+import './CompanyCard.css';
+import { Link } from 'react-router-dom'
 
 /**
  * CompanyCard component that renders information about the company.
@@ -11,33 +13,21 @@ import { CompanyDataFromAPI } from "./CompanyList";
 function CompanyCard(
     {handle, name, description, logoUrl}: CompanyDataFromAPI
 ) {
-    console.debug(
-        'CompanyCard',
-        'handle=',
-        handle,
-        'name=',
-        name,
-        'description=',
-        description,
-        'logoURL',
-        logoUrl
-    )
+
     return (
-        <a href={`companies/${handle}`}>
-            <div className="company-card">
+        <Link className="company card" to={`${handle}`}>
+            <div className="company-info">
                 <div className="company-brand">
                     <p>{ name }</p>
                     {
-                        logoUrl === 'null' ?
+                        logoUrl === 'null' ? //Comparing to null string, passed as prop
                         null :
                         <img src={`${logoUrl}`} alt="company logo" />
                     }
                 </div>
-                <div className="company-info">
-                    <p>{ description }</p>
-                </div>
+                <p>{ description }</p>
             </div>
-        </a>
+        </Link>
     )
 }
 

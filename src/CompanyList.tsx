@@ -2,6 +2,7 @@ import {useState, useEffect } from "react";
 import CompanyCard from "./CompanyCard";
 import SearchForm from "./SearchForm";
 import { CompanyDataToAPI, JoblyApi } from "./api";
+import './CompanyList.css';
 
 type CompanyDataFromAPI = Omit<CompanyDataToAPI, 'handle'> & Required<Pick<CompanyDataToAPI, 'handle'>>;
 
@@ -26,7 +27,7 @@ function CompanyList() {
             let companies;
             try {
                 companies = await JoblyApi.getCompanies(searchTerm);
-                console.log("companies=", companies);
+                // console.log("companies=", companies);
                 setCompaniesData(companies);
                 setErrors([]);
             } catch (error) {
@@ -55,21 +56,25 @@ function CompanyList() {
 
     if(companiesData === null) {
         return (
-            <h2>Loading...</h2>
+            <div className="spinner d-flex align-items-center">
+                <div className="spinner-border me-3 text-light" aria-hidden="true"></div>
+                <strong className="text-light" role="status">Loading...</strong>
+            </div>
         )
     }
 
 
     return (
-        <>
+        <div className="companylist-container">
             <SearchForm onSearch={onSearch}/>
-            {searchTerm.length > 0 ?
-                <p>Search results for "{searchTerm}"</p> :
-                <p>All Companies</p>
-            }
+            <h1>
+                {searchTerm.length > 0 ?
+                    `Search results for ${searchTerm}` :
+                    "All Companies"
+                }
+            </h1>
             {companiesData.length > 0 ?
                 companiesData.map((company, i)=>{
-                    console.log('company.logoURL=', company.logoUrl)
                     return (
                         <CompanyCard
                             key={`${i}`}
@@ -81,9 +86,9 @@ function CompanyList() {
                         />
                     )
                 }) :
-                <p>Sorry, no results found!</p>
+                <p className="no-results">Sorry, no results found!</p>
             }
-        </>
+        </div>
     )
 }
 

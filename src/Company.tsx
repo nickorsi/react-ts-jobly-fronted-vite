@@ -4,6 +4,7 @@ import { CompanyDataFromAPI } from "./CompanyList";
 import { JobsDataFromAPI } from "./JobList";
 import { JobCardList } from "./JobCardList";
 import LoadingSpinner from "./LoadingSpinner";
+import ErrorMessage from "./ErrorMessage";
 import { JoblyApi } from "./api";
 import './Company.css';
 
@@ -38,14 +39,7 @@ function Company() {
 
     if(errors.length > 0) {
         return (
-            <>
-                <h2>Oops, looks like something went wrong!</h2>
-                {errors.map((er, i) => {
-                    return (
-                        <div key={i}>{er}</div>
-                    )
-                })}
-            </>
+            <ErrorMessage errors={errors}></ErrorMessage>
         )
     }
 

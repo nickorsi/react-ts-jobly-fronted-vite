@@ -2,6 +2,7 @@ import {useState, useEffect } from "react";
 import CompanyCard from "./CompanyCard";
 import SearchForm from "./SearchForm";
 import LoadingSpinner from "./LoadingSpinner";
+import ErrorMessage from "./ErrorMessage";
 import { CompanyDataToAPI, JoblyApi } from "./api";
 import './CompanyList.css';
 
@@ -44,16 +45,13 @@ function CompanyList() {
 
     if(errors.length > 0) {
         return (
-            <LoadingSpinner></LoadingSpinner>
+            <ErrorMessage errors={errors}></ErrorMessage>
         )
     }
 
     if(companiesData === null) {
         return (
-            <div className="spinner d-flex align-items-center">
-                <div className="spinner-border me-3 text-light" aria-hidden="true"></div>
-                <strong className="text-light" role="status">Loading...</strong>
-            </div>
+            <LoadingSpinner></LoadingSpinner>
         )
     }
 

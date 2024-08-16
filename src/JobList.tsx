@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { JobCardList } from "./JobCardList";
 import SearchForm from "./SearchForm";
 import LoadingSpinner from "./LoadingSpinner";
+import ErrorMessage from "./ErrorMessage";
 import { JobDataToAPI, JoblyApi } from "./api";
 import './JobList.css';
 
@@ -47,14 +48,7 @@ function JobList() {
 
     if(errors.length > 0) {
         return (
-            <>
-                <h2>Oops, looks like something went wrong!</h2>
-                {errors.map((er, i) => {
-                    return (
-                        <div key={i}>{er}</div>
-                    )
-                })}
-            </>
+            <ErrorMessage errors={errors}></ErrorMessage>
         )
     }
 

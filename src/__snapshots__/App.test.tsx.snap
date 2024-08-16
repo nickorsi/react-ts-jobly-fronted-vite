@@ -41,7 +41,7 @@ exports[`matches the snapshot 1`] = `
           >
             <a
               class=""
-              data-testid="copmanies-nav-button"
+              data-testid="companies-nav-button"
               href="/companies"
             >
               Companies

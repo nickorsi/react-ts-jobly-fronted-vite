@@ -1,0 +1,17 @@
+.error-container {
+  margin: auto 15px;
+}
+
+.error-container h2 {
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 5px rgb(52, 48, 47);
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+.error-container p {
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+}

@@ -38,7 +38,7 @@ function NavBar() {
                                 className={({ isActive, isPending }) =>
                                     isPending ? "pending" : isActive ? "active" : ""
                                 }
-                                data-testid="copmanies-nav-button"
+                                data-testid="companies-nav-button"
                             >
                                 Companies
                             </NavLink>

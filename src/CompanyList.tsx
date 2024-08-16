@@ -1,6 +1,7 @@
 import {useState, useEffect } from "react";
 import CompanyCard from "./CompanyCard";
 import SearchForm from "./SearchForm";
+import LoadingSpinner from "./LoadingSpinner";
 import { CompanyDataToAPI, JoblyApi } from "./api";
 import './CompanyList.css';
 
@@ -43,14 +44,7 @@ function CompanyList() {
 
     if(errors.length > 0) {
         return (
-            <>
-                <h2>Oops, looks like something went wrong!</h2>
-                {errors.map((er, i) => {
-                    return (
-                        <div key={i}>{er}</div>
-                    )
-                })}
-            </>
+            <LoadingSpinner></LoadingSpinner>
         )
     }
 

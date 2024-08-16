@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { JobCardList } from "./JobCardList";
 import SearchForm from "./SearchForm";
+import LoadingSpinner from "./LoadingSpinner";
 import { JobDataToAPI, JoblyApi } from "./api";
 import './JobList.css';
 
@@ -59,7 +60,7 @@ function JobList() {
 
     if(jobsData === null) {
         return (
-            <h2>Loading...</h2>
+            <LoadingSpinner></LoadingSpinner>
         )
     }
 

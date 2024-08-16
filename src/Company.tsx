@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { CompanyDataFromAPI } from "./CompanyList";
 import { JobsDataFromAPI } from "./JobList";
 import { JobCardList } from "./JobCardList";
+import LoadingSpinner from "./LoadingSpinner";
 import { JoblyApi } from "./api";
 import './Company.css';
 
@@ -50,9 +51,7 @@ function Company() {
 
     if(companyData === null) {
         return (
-            <div className="spinner-border text-primary" role="status">
-                <span className="visually-hidden">Loading...</span>
-            </div>
+            <LoadingSpinner></LoadingSpinner>
         )
     }
 

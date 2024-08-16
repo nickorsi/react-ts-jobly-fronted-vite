@@ -1,4 +1,4 @@
-const BASE_URL:string = import.meta.env.VITE_REACT_APP_BASE_URL || "http://localhost:3001";
+const BASE_URL: string = import.meta.env.VITE_REACT_APP_BASE_URL || "http://localhost:3001";
 
 type CompanyDataToAPI = {
   handle?: string,
@@ -22,12 +22,12 @@ type UserDataToAPI = {
   lastName?: string,
   email?: string,
   isAdmin?: boolean,
-}
+};
 
 type FilterDataToAPI = {
   nameLike?: string,
   title?: string,
-}
+};
 
 type Data = CompanyDataToAPI | UserDataToAPI | JobDataToAPI | UserDataToAPI | FilterDataToAPI | Record<string, never>;
 
@@ -47,7 +47,8 @@ class JoblyApi {
     "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
     "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
 
-  static async request(endpoint:string, data:Data = {}, method:string = "GET") {
+  static async request(endpoint: string, data: Data = {}, method: string = "GET") {
+    console.log("Called request");
     const url = new URL(`${BASE_URL}/${endpoint}`);
     const headers = {
       authorization: `Bearer ${JoblyApi.token}`,
@@ -63,15 +64,19 @@ class JoblyApi {
       ? JSON.stringify(data)
       : undefined;
 
-    const resp = await fetch(url, { method, body, headers });
+    try {
+      const resp = await fetch(url, { method, body, headers });
+      if (!resp.ok) {
+        console.error("API Error:", resp.statusText, resp.status);
+        const message = (await resp.json()).error.message;
+        throw Array.isArray(message) ? message : [message];
+      }
 
-    if (!resp.ok) {
-      console.error("API Error:", resp.statusText, resp.status);
-      const message = (await resp.json()).error.message;
-      throw Array.isArray(message) ? message : [message];
+      return await resp.json();
+    } catch (e) {
+      console.error(e);
+      throw ["Our services are down!"];
     }
-
-    return await resp.json();
   }
 
   // Individual API routes
@@ -89,9 +94,9 @@ class JoblyApi {
   */
 
   static async getCompanies(searchTerm: string = '') {
-    const data:FilterDataToAPI = {};
-    if(searchTerm.length > 0) {
-       data['nameLike'] = searchTerm;
+    const data: FilterDataToAPI = {};
+    if (searchTerm.length > 0) {
+      data['nameLike'] = searchTerm;
     }
     const res = await this.request(`companies`, data);
     return res.companies;
@@ -103,9 +108,9 @@ class JoblyApi {
   */
 
   static async getJobs(searchTerm: string = '') {
-    const data:FilterDataToAPI = {};
-    if(searchTerm.length > 0) {
-       data['title'] = searchTerm;
+    const data: FilterDataToAPI = {};
+    if (searchTerm.length > 0) {
+      data['title'] = searchTerm;
     }
     const res = await this.request(`jobs`, data);
     return res.jobs;
@@ -114,4 +119,4 @@ class JoblyApi {
 
 export { JoblyApi, BASE_URL };
 
-export type {JobDataToAPI, CompanyDataToAPI};
+export type { JobDataToAPI, CompanyDataToAPI };

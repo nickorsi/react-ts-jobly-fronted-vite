@@ -1,0 +1,43 @@
+.company {
+  text-decoration: none;
+}
+
+.company:hover {
+  box-shadow: 0px 0px 5px 5px rgb(10, 173, 214);
+  text-decoration: underline;
+}
+
+.company:active {
+  box-shadow: 0px 0px 0px 0px rgb(10, 173, 214);
+  text-decoration: none;
+}
+
+.company-info p {
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 15px;
+}
+
+.company-brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 700px) {
+  .company-brand {
+    flex-direction: column;
+  }
+}
+
+.company-brand img {
+  width: 100px;
+  border: solid black 2px;
+  border-radius: 5px;
+}

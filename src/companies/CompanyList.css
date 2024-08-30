@@ -1,0 +1,21 @@
+.companylist-container {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+}
+
+.companylist-container h1 {
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 5px rgb(52, 48, 47);
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+.no-results {
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 40px;
+}

@@ -1,0 +1,15 @@
+.not-found h2{
+  text-align: center;
+}
+
+.card {
+  background-color: white;
+  border: solid 2px black;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 15px;
+}
+
+.not-found p {
+  font-size: 1.1rem;
+}

@@ -1,9 +1,9 @@
-import {describe, expect, it, vi} from 'vitest';
-import { render, screen } from '@testing-library/react';
+import {describe, expect, it, vi} from "vitest";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { JoblyApi } from './api.ts';
-import App from './App.tsx';
+import { JoblyApi } from "./api/api.ts";
+import App from "./App.tsx";
 
 /**
  * Something wrong with test config, uncomment line below to get intellisense to
@@ -20,7 +20,7 @@ describe("Simple Render Tests", () => {
       render(<App />);
   })
 
-  it('matches the snapshot', function () {
+  it("matches the snapshot", function () {
       const { container } = render(<App />);
 
       expect(container).toMatchSnapshot();
@@ -40,27 +40,27 @@ describe("Navigation Tests within App", () => {
     mockedGetJobs.mockReturnValue(Promise.resolve([
       {
         id: 1,
-        title: 'Job 1',
+        title: "Job 1",
         salary: 1,
-        equity: '1',
-        companyHandle: 'c1',
-        companyName: 'Company 1',
+        equity: "1",
+        companyHandle: "c1",
+        companyName: "Company 1",
       },
       {
         id: 2,
-        title: 'Job 2',
+        title: "Job 2",
         salary: 2,
-        equity: '2',
-        companyHandle: 'c2',
-        companyName: 'Company 2',
+        equity: "2",
+        companyHandle: "c2",
+        companyName: "Company 2",
       },
       {
         id: 3,
-        title: 'Job 3',
+        title: "Job 3",
         salary: 3,
-        equity: '3',
-        companyHandle: 'c3',
-        companyName: 'Company 3',
+        equity: "3",
+        companyHandle: "c3",
+        companyName: "Company 3",
       },
     ]));
 
@@ -81,40 +81,40 @@ describe("Navigation Tests within App", () => {
   it("can be navigated to Companies from Home", async function () {
     mockedGetCompanies.mockReturnValue(Promise.resolve([
       {
-        handle: 'c1',
-        name: 'Company 1',
+        handle: "c1",
+        name: "Company 1",
         description: "Description 1",
         numEmployees: 1,
-        logoUrl: 'http//c1.img',
+        logoUrl: "http//c1.img",
       },
       {
-        handle: 'c2',
-        name: 'Company 2',
+        handle: "c2",
+        name: "Company 2",
         description: "Description 2",
         numEmployees: 2,
-        logoUrl: 'http//c2.img',
+        logoUrl: "http//c2.img",
       },
       {
-        handle: 'c3',
-        name: 'Company 3',
+        handle: "c3",
+        name: "Company 3",
         description: "Description 3",
         numEmployees: 3,
-        logoUrl: 'http//c3.img',
+        logoUrl: "http//c3.img",
       },
     ]));
     mockedGetCompany.mockReturnValue(Promise.resolve({
-      handle: 'c1',
-      name: 'Company 1',
+      handle: "c1",
+      name: "Company 1",
       description: "Description 1",
       numEmployees: 1,
-      logoUrl: 'http//c1.img',
+      logoUrl: "http//c1.img",
       jobs: [
         {
           id: 1,
-          title: 'Job 1',
+          title: "Job 1",
           salary: 1,
-          equity: '1',
-          companyName: 'Company 1',
+          equity: "1",
+          companyName: "Company 1",
         }
       ]
     }));
@@ -135,26 +135,26 @@ describe("Navigation Tests within App", () => {
   it("can be navigated to Company from Home", async function () {
     mockedGetCompanies.mockReturnValue(Promise.resolve([
       {
-        handle: 'c1',
-        name: 'Company 1',
+        handle: "c1",
+        name: "Company 1",
         description: "Description 1",
         numEmployees: 1,
-        logoUrl: 'http//c1.img',
+        logoUrl: "http//c1.img",
       },
     ]));
     mockedGetCompany.mockReturnValue(Promise.resolve({
-      handle: 'c1',
-      name: 'Company 1',
+      handle: "c1",
+      name: "Company 1",
       description: "Description 1",
       numEmployees: 1,
-      logoUrl: 'http//c1.img',
+      logoUrl: "http//c1.img",
       jobs: [
         {
           id: 1,
-          title: 'Job 1',
+          title: "Job 1",
           salary: 1,
-          equity: '1',
-          companyName: 'Company 1',
+          equity: "1",
+          companyName: "Company 1",
         }
       ]
     }));

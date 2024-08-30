@@ -1,7 +1,7 @@
 import React from 'react'
 import "./App.css";
-import NavBar from './NavBar'
-import RoutesList from './RoutesList'
+import NavBar from './nav/NavBar'
+import RoutesList from './nav/RoutesList'
 import { BrowserRouter } from 'react-router-dom'
 
 /**

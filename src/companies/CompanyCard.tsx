@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
  * CompanyList -> CompanyCard
  */
 function CompanyCard(
-    {handle, name, description, logoUrl}: CompanyDataFromAPI
+    {handle, name, description, numEmployees, logoUrl}: CompanyDataFromAPI
 ) {
 
     return (

@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Simple Render Tests > matches the snapshot 1`] = `
+<div>
+  <div
+    class="not-found card"
+  >
+    <h2>
+      Sorry! 😅
+    </h2>
+    <p>
+      Looks like that page doesn't exist!
+    </p>
+    <p>
+      Please check out the rest of our site with the links above!
+    </p>
+  </div>
+</div>
+`;

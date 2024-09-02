@@ -1,0 +1,20 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Simple Render Tests > matches the snapshot 1`] = `
+<div>
+  <div
+    class="error-container"
+  >
+    <h2>
+      Oops!
+    </h2>
+    <p>
+      Looks like something went wrong:
+      <span>
+         
+        Testing this!
+      </span>
+    </p>
+  </div>
+</div>
+`;

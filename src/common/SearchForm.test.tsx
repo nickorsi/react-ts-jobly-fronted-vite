@@ -1,5 +1,5 @@
 import {describe, expect, it, vi} from "vitest";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import SearchForm from "./SearchForm.tsx";
@@ -26,12 +26,15 @@ describe("SearchForm Interaction Tests", () => {
             <SearchForm onSearch={fn} />
         );
 
-        await user.type(screen.getByTestId('search-bar-input'), "Test");
-        await user.click(screen.getByTestId('search-bar-submit'));
+        const searchInput = screen.getByTestId('search-bar-input') as HTMLInputElement;
+        const searchSubmit = screen.getByTestId('search-bar-submit');
+
+        await user.type(searchInput, "Test");
+        await user.click(searchSubmit);
 
         expect(fn).toHaveBeenCalledOnce();
         expect(fn.mock.calls).toEqual([['Test']]);
         // Search bar value should be 'Test' and shouldn't be blank
-        expect(screen.getByTestId('search-bar-input').value).toEqual('Test');
+        expect(searchInput.value).toEqual('Test');
     });
 });

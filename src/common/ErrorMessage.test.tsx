@@ -25,7 +25,7 @@ describe("Multiple Errors Tests", () => {
         )
 
         expect(
-            container.querySelector(".error-container p").textContent
+            container.querySelector(".error-container p")?.textContent
         ).toEqual(
             "Looks like something went wrong: Did, you, get, all, this"
         )

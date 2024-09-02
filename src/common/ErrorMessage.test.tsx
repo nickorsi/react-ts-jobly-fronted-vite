@@ -28,6 +28,6 @@ describe("Multiple Errors Tests", () => {
             container.querySelector(".error-container p")?.textContent
         ).toEqual(
             "Looks like something went wrong: Did, you, get, all, this"
-        )
+        );
     });
 });

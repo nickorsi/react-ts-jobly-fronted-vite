@@ -37,7 +37,7 @@ it("renders homepage and navbar", function () {
 describe("Navigation Tests within App", () => {
 
   it("can be navigated to Jobs from Home", async function () {
-    mockedGetJobs.mockReturnValue(Promise.resolve([
+    mockedGetJobs.mockResolvedValue([
       {
         id: 1,
         title: "Job 1",
@@ -62,7 +62,7 @@ describe("Navigation Tests within App", () => {
         companyHandle: "c3",
         companyName: "Company 3",
       },
-    ]));
+    ]);
 
 
     const { container } = render(<App />)
@@ -79,7 +79,7 @@ describe("Navigation Tests within App", () => {
   });
 
   it("can be navigated to Companies from Home", async function () {
-    mockedGetCompanies.mockReturnValue(Promise.resolve([
+    mockedGetCompanies.mockResolvedValue([
       {
         handle: "c1",
         name: "Company 1",
@@ -101,8 +101,8 @@ describe("Navigation Tests within App", () => {
         numEmployees: 3,
         logoUrl: "http//c3.img",
       },
-    ]));
-    mockedGetCompany.mockReturnValue(Promise.resolve({
+    ]);
+    mockedGetCompany.mockResolvedValue({
       handle: "c1",
       name: "Company 1",
       description: "Description 1",
@@ -117,7 +117,7 @@ describe("Navigation Tests within App", () => {
           companyName: "Company 1",
         }
       ]
-    }));
+    });
 
     const { container } = render(<App />)
 
@@ -133,7 +133,7 @@ describe("Navigation Tests within App", () => {
   });
 
   it("can be navigated to Company from Home", async function () {
-    mockedGetCompanies.mockReturnValue(Promise.resolve([
+    mockedGetCompanies.mockResolvedValue([
       {
         handle: "c1",
         name: "Company 1",
@@ -141,8 +141,8 @@ describe("Navigation Tests within App", () => {
         numEmployees: 1,
         logoUrl: "http//c1.img",
       },
-    ]));
-    mockedGetCompany.mockReturnValue(Promise.resolve({
+    ]);
+    mockedGetCompany.mockResolvedValue({
       handle: "c1",
       name: "Company 1",
       description: "Description 1",
@@ -157,7 +157,7 @@ describe("Navigation Tests within App", () => {
           companyName: "Company 1",
         }
       ]
-    }));
+    });
 
     const { container } = render(<App />)
 

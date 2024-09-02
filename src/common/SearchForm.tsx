@@ -26,12 +26,14 @@ function SearchForm({onSearch}: SearchFormProps) {
         <div className="search-bar">
             <form action="GET" className="search-bar-form">
                 <input
+                    data-testid="search-bar-input"
                     type="text"
                     placeholder="Enter a search term..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
                 <button
+                    data-testid="search-bar-submit"
                     className="btn btn-primary"
                     type="submit"
                     onClick={handleSearch}

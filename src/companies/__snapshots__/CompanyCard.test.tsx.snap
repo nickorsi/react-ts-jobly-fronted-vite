@@ -1,0 +1,29 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Simple Render Tests > matches the snapshot 1`] = `
+<div>
+  <a
+    class="company card"
+    href="/c1"
+  >
+    <div
+      class="company-info"
+    >
+      <div
+        class="company-brand"
+      >
+        <p>
+          Company 1
+        </p>
+        <img
+          alt="company logo"
+          src="http//c1.img"
+        />
+      </div>
+      <p>
+        Description 1
+      </p>
+    </div>
+  </a>
+</div>
+`;

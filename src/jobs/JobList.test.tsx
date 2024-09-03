@@ -212,9 +212,7 @@ describe("Different Rendered Condition Tests", () => {
             expect(container).toContainHTML("Job 3");
         });
 
-        mockedGetJobs.mockResolvedValue(
-            []
-        );
+        mockedGetJobs.mockResolvedValue([]);
 
         const searchInput = screen.getByTestId('search-bar-input') as HTMLInputElement;
         const searchSubmit = screen.getByTestId('search-bar-submit');

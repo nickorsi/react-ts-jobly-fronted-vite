@@ -217,9 +217,7 @@ describe("Different Rendered Condition Tests", () => {
             expect(container).toContainHTML("Company 3");
         });
 
-        mockedGetCompanies.mockResolvedValue(
-            []
-        );
+        mockedGetCompanies.mockResolvedValue([]);
 
         const searchInput = screen.getByTestId('search-bar-input') as HTMLInputElement;
         const searchSubmit = screen.getByTestId('search-bar-submit');

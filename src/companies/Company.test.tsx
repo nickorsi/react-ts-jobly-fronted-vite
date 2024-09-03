@@ -25,7 +25,7 @@ describe("Simple Render Tests", () => {
     });
 });
 
-describe("Render Different States", () => {
+describe("Different Rendered Condition Tests", () => {
     it("renders loading component", function () {
         const { container } = render(<Company />);
 
@@ -76,6 +76,5 @@ describe("Render Different States", () => {
                 "Looks like something went wrong: Test Error"
             );
         });
-
     })
 });

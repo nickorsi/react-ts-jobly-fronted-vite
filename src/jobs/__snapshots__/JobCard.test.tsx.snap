@@ -1,0 +1,45 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Simple Render Tests > matches the snapshot 1`] = `
+<div>
+  <div
+    class="job card"
+    id="1"
+  >
+    <div
+      class="job-titles"
+    >
+      <p>
+        Job Title: 
+        <span
+          class="job-title"
+        >
+          Job 1
+        </span>
+      </p>
+      <p
+        class="job-company"
+      >
+        Company: 
+        Company 1
+      </p>
+    </div>
+    <div
+      class="job-pay-info"
+    >
+      <p
+        class="job-salary"
+      >
+        Salary: 
+        1
+      </p>
+      <p
+        class="job-equity"
+      >
+        Equity: 
+        1
+      </p>
+    </div>
+  </div>
+</div>
+`;

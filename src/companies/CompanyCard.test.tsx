@@ -4,7 +4,7 @@ import { MemoryRouter } from "react-router-dom";
 
 import CompanyCard from "./CompanyCard.tsx";
 
-const defaultCompany = {
+const TEST_COMPANY = {
     "handle": "c1",
     "name": "Company 1",
     "description": "Description 1",
@@ -18,11 +18,11 @@ describe("Simple Render Tests", () => {
         render(
             <MemoryRouter>
                 <CompanyCard
-                    handle={defaultCompany.handle}
-                    name={defaultCompany.name}
-                    description={defaultCompany.description}
-                    numEmployees={defaultCompany.numEmployees}
-                    logoUrl={defaultCompany.logoUrl}
+                    handle={TEST_COMPANY.handle}
+                    name={TEST_COMPANY.name}
+                    description={TEST_COMPANY.description}
+                    numEmployees={TEST_COMPANY.numEmployees}
+                    logoUrl={TEST_COMPANY.logoUrl}
                 />
             </MemoryRouter>
         );
@@ -31,11 +31,11 @@ describe("Simple Render Tests", () => {
         const { container } = render(
             <MemoryRouter>
                 <CompanyCard
-                    handle={defaultCompany.handle}
-                    name={defaultCompany.name}
-                    description={defaultCompany.description}
-                    numEmployees={defaultCompany.numEmployees}
-                    logoUrl={defaultCompany.logoUrl}
+                    handle={TEST_COMPANY.handle}
+                    name={TEST_COMPANY.name}
+                    description={TEST_COMPANY.description}
+                    numEmployees={TEST_COMPANY.numEmployees}
+                    logoUrl={TEST_COMPANY.logoUrl}
                 />
             </MemoryRouter>
         );

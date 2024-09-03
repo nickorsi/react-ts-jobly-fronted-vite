@@ -4,6 +4,7 @@ exports[`Simple Render Tests > matches the snapshot 1`] = `
 <div>
   <a
     class="company card"
+    data-testid="company-link"
     href="/c1"
   >
     <div

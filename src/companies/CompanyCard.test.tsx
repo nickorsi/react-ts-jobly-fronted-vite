@@ -1,5 +1,5 @@
 import {describe, expect, it} from "vitest";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 
 import CompanyCard from "./CompanyCard.tsx";
@@ -42,4 +42,21 @@ describe("Simple Render Tests", () => {
 
         expect(container).toMatchSnapshot();
     });
+    it("renders with the correct content", function () {
+        const { container } = render(
+            <MemoryRouter>
+                <CompanyCard
+                    handle={TEST_COMPANY.handle}
+                    name={TEST_COMPANY.name}
+                    description={TEST_COMPANY.description}
+                    numEmployees={TEST_COMPANY.numEmployees}
+                    logoUrl={TEST_COMPANY.logoUrl}
+                />
+            </MemoryRouter>
+        );
+
+        expect(
+            screen.getByTestId("company-link").getAttribute('href')
+        ).toEqual(`/${TEST_COMPANY.handle}`);
+    })
 });

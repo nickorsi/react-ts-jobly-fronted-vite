@@ -15,7 +15,7 @@ function CompanyCard(
 ) {
 
     return (
-        <Link className="company card" to={`${handle}`}>
+        <Link className="company card" to={`${handle}`} data-testid="company-link">
             <div className="company-info">
                 <div className="company-brand">
                     <p>{ name }</p>

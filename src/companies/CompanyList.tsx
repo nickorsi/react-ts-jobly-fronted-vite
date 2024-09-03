@@ -78,7 +78,7 @@ function CompanyList() {
                         />
                     )
                 }) :
-                <p className="no-results">Sorry, no results found!</p>
+                <p className="no-results">Sorry, no results were found!</p>
             }
         </div>
     )

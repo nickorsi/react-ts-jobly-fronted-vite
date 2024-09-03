@@ -178,7 +178,7 @@ describe("Different Rendered Condition Tests", () => {
         });
     });
 
-    it("renders and unsuccessful search result", async function() {
+    it("renders an unsuccessful search result", async function() {
         mockedGetCompanies.mockResolvedValue([
             {
                 handle: "c1",
@@ -231,7 +231,7 @@ describe("Different Rendered Condition Tests", () => {
         expect(mockedGetCompanies.mock.calls).toEqual([[""], ["Test Fail"]]);
 
         await waitFor(() => {
-            expect(container).toContainHTML("Sorry, no results found!");
+            expect(container).toContainHTML("Sorry, no results were found!");
             expect(() => {
                 expect(container).toContainHTML("Company 1");
             }).toThrow();

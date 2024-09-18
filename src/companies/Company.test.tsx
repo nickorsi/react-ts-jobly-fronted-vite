@@ -1,7 +1,7 @@
 import {describe, expect, it, vi} from "vitest";
 import { render, waitFor } from "@testing-library/react";
 
-import { JoblyApi } from "../api/api.ts";
+import { mockedGetCompany } from "../setupTests";
 import { Company } from "./Company.tsx";
 
 /**
@@ -9,8 +9,6 @@ import { Company } from "./Company.tsx";
  * recognize the extended expect methods, comment out for tests to run properly.
 */
 // import "@testing-library/jest-dom";
-
-const mockedGetCompany = vi.spyOn(JoblyApi, "getCompany");
 
 describe("Simple Render Tests", () => {
     it("renders without crashing", function () {
@@ -73,7 +71,7 @@ describe("Different Rendered Condition Tests", () => {
             expect(
                 container.querySelector(".error-container p")?.textContent
             ).toEqual(
-                "Looks like something went wrong: Test Error"
+                "Something went wrong. Test Error"
             );
         });
     })

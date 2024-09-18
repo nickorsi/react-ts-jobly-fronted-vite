@@ -2,7 +2,7 @@ import {describe, expect, it, vi} from "vitest";
 import { render, waitFor, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 
-import { JoblyApi } from "../api/api.ts";
+import { mockedGetCompanies } from "../setupTests.ts";
 import { CompanyList } from "./CompanyList.tsx";
 import userEvent from "@testing-library/user-event";
 
@@ -12,7 +12,6 @@ import userEvent from "@testing-library/user-event";
 */
 // import "@testing-library/jest-dom";
 
-const mockedGetCompanies = vi.spyOn(JoblyApi, "getCompanies");
 const user = userEvent.setup();
 
 describe("Simple Render Tests", () => {
@@ -103,7 +102,7 @@ describe("Different Rendered Condition Tests", () => {
             expect(
                 container.querySelector(".error-container p")?.textContent
             ).toEqual(
-                "Looks like something went wrong: Test Error"
+                "Something went wrong. Test Error"
             );
         });
     });

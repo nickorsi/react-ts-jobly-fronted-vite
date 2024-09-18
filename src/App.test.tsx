@@ -1,8 +1,8 @@
 import {describe, expect, it, vi} from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { mockedGetCompanies, mockedGetCompany, mockedGetJobs } from "./setupTests.ts";
 
-import { JoblyApi } from "./api/api.ts";
 import App from "./App.tsx";
 
 /**
@@ -10,10 +10,6 @@ import App from "./App.tsx";
  * recognize the extended expect methods, comment out for tests to run properly.
 */
 // import "@testing-library/jest-dom";
-
-const mockedGetJobs = vi.spyOn(JoblyApi, "getJobs");
-const mockedGetCompanies = vi.spyOn(JoblyApi, "getCompanies");
-const mockedGetCompany = vi.spyOn(JoblyApi, "getCompany");
 
 describe("Simple Render Tests", () => {
   it("renders without crashing", function () {

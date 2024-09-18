@@ -42,8 +42,8 @@ describe("Simple Render Tests", () => {
 
         expect(container).toMatchSnapshot();
     });
-    it("renders with the correct content", function () {
-        const { container } = render(
+    it("renders with the correct link path", function () {
+        render(
             <MemoryRouter>
                 <CompanyCard
                     handle={TEST_COMPANY.handle}

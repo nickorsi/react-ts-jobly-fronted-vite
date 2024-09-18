@@ -74,13 +74,11 @@ class JoblyApi {
       return await resp.json();
     } catch (e: unknown) {
       console.error(e);
-      debugger;
       if (e instanceof Error) {
         if (e.message.includes("Failed to fetch")) {
           throw ["Looks like our servers are down!"];
         } else throw ["Unkown error, please try again later!"];
       }
-
       else throw e;
     }
   }

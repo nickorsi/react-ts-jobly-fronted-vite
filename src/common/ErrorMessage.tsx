@@ -11,7 +11,7 @@ function ErrorMessage({ errors }: {'errors': string[]}) {
     return (
         <div className="error-container">
             <h2>Oops!</h2>
-            <p>Looks like something went wrong:
+            <p>Something went wrong.
             {errors.map((er, i, arr) => {
                 return i + 1 !== arr.length ?
                     (<span key={i}> {er},</span>) :

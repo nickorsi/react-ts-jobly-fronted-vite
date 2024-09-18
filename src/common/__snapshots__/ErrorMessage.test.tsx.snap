@@ -9,7 +9,7 @@ exports[`Simple Render Tests > matches the snapshot 1`] = `
       Oops!
     </h2>
     <p>
-      Looks like something went wrong:
+      Something went wrong.
       <span>
          
         Testing this!

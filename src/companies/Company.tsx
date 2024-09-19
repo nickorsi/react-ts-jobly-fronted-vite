@@ -66,7 +66,7 @@ function Company() {
             <h2>Open Positions</h2>
             {companyData.jobs.length > 0 ?
                 <JobCardList jobs={companyData.jobs}></JobCardList> :
-                <p className="no-results">Sorry, there are no open roles at this time. </p>
+                <p className="no-results">Sorry, there are no open roles at this time.</p>
             }
         </div>
     )

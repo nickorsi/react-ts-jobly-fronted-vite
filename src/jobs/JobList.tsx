@@ -8,7 +8,7 @@ import './JobList.css';
 
 type JobDataFromAPI = {
     id: number,
-    companyName: string
+    companyName?: string
 } & JobDataToAPI;
 
 type JobsDataFromAPI = JobDataFromAPI[];

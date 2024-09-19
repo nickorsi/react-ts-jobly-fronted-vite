@@ -14,6 +14,7 @@ describe("Simple Render Tests", () => {
     it("renders without crashing", function () {
         render(<Company />);
     });
+
     it("matches the snapshot", function () {
         const { container } = render(
             <Company />
@@ -31,7 +32,7 @@ describe("Different Rendered Condition Tests", () => {
         expect(container).toContainHTML("Loading...");
     });
 
-    it("renders company info", async function () {
+    it("renders company info with logo and a job", async function () {
         mockedGetCompany.mockResolvedValue({
             handle: "c1",
             name: "Company 1",
@@ -55,6 +56,30 @@ describe("Different Rendered Condition Tests", () => {
 
         await waitFor(() => {
             expect(container).toContainHTML("Company 1");
+            expect(container).toContainHTML("Job 1");
+            expect(container).toContainElement(container.querySelector("img"));
+        });
+    });
+
+    it("renders company with no logo and no jobs", async function() {
+        mockedGetCompany.mockResolvedValue({
+            handle: "c1",
+            name: "Company 1",
+            description: "Description 1",
+            numEmployees: 1,
+            logoUrl: null,
+            jobs: [],
+        });
+
+        const { container } = render(<Company />);
+
+        expect(mockedGetCompany).toHaveBeenCalledOnce();
+
+        await waitFor(() => {
+            expect(container).toContainHTML(
+                "Sorry, there are no open roles at this time."
+            );
+            expect(container).not.toContainElement(container.querySelector("img"));
         });
     });
 

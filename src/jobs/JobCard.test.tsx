@@ -12,6 +12,15 @@ const TEST_JOB = {
     "companyName": "Company 1",
 }
 
+const TEST_JOB_2 = {
+    "id": 1,
+    "title": "Job 1",
+    "salary": 1,
+    "equity": "1",
+    "companyHandle": undefined,
+    "companyName": undefined,
+}
+
 
 describe("Simple Render Tests", () => {
     it("renders without crashing", function () {
@@ -40,4 +49,11 @@ describe("Simple Render Tests", () => {
 
         expect(container).toMatchSnapshot();
     });
+    it("renders without a companyName", function () {
+        render(
+            <JobCard
+               {...TEST_JOB_2}
+            />
+        );
+    })
 });

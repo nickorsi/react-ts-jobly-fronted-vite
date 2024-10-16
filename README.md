@@ -24,12 +24,14 @@
 <br />
 <div align="center">
   <a href="https://github.com/nickorsi/react-ts-jobly-fronted-vite">
-    <img src="static/react-ts-jobly-fronted-vite_demo.gif" alt="App Demo Gif">
+    <video controls width="250">
+      <source src="/static/react-ts-jobly-fronted-vite_demo.mp4" type="video/mp4" />
+    </video>
   </a>
   <p align="center">
     A Job Board app for all your job needs!
     <br />
-    <a href="https://saltly.onrender.com">View Demo</a>
+    <!-- <a href="https://saltly.onrender.com">View Demo</a> -->
     ·
     <a href="https://github.com/nickorsi/react-ts-jobly-fronted-vite/issues">Report Bug</a>
     ·

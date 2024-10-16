@@ -25,7 +25,7 @@
 <div align="center">
   <a href="https://github.com/nickorsi/react-ts-jobly-fronted-vite">
     <video controls width="250">
-      <source src="/static/react-ts-jobly-fronted-vite_demo.mp4" type="video/mp4" />
+      <source src="static/react-ts-jobly-fronted-vite_demo.mp4" type="video/mp4" />
     </video>
   </a>
   <p align="center">

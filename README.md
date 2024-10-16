@@ -20,29 +20,29 @@
 -->
 
 <!-- PROJECT LOGO -->
-<h3 align="center">🧂Saltly🧂</h3>
+<h3 align="center">💼 Jobly 💼</h3>
 <br />
 <div align="center">
-  <a href="https://github.com/nickorsi/satly">
-    <img src="static/satly_demo.gif" alt="App Demo Gif">
+  <a href="https://github.com/nickorsi/react-ts-jobly-fronted-vite">
+    <img src="static/react-ts-jobly-fronted-vite_demo.gif" alt="App Demo Gif">
   </a>
   <p align="center">
-    An image light table/editor app for all your salty photos!
+    A Job Board app for all your job needs!
     <br />
     <a href="https://saltly.onrender.com">View Demo</a>
     ·
-    <a href="https://github.com/nickorsi/satly/issues">Report Bug</a>
+    <a href="https://github.com/nickorsi/react-ts-jobly-fronted-vite/issues">Report Bug</a>
     ·
-    <a href="https://github.com/nickorsi/satly/issues">Request Feature</a>
+    <a href="https://github.com/nickorsi/react-ts-jobly-fronted-vite/issues">Request Feature</a>
   </p>
 </div>
 
 <div align="center">
 
-  ![GitHub top language](https://img.shields.io/github/languages/top/nickorsi/satly)
-  ![GitHub repo size](https://img.shields.io/github/repo-size/nickorsi/satly)
-  ![GitHub repo file or directory count](https://img.shields.io/github/directory-file-count/nickorsi/satly)
-  ![GitHub last commit](https://img.shields.io/github/last-commit/nickorsi/satly)
+  ![GitHub top language](https://img.shields.io/github/languages/top/nickorsi/react-ts-jobly-fronted-vite)
+  ![GitHub repo size](https://img.shields.io/github/repo-size/nickorsi/react-ts-jobly-fronted-vite)
+  ![GitHub repo file or directory count](https://img.shields.io/github/directory-file-count/nickorsi/react-ts-jobly-fronted-vite)
+  ![GitHub last commit](https://img.shields.io/github/last-commit/nickorsi/react-ts-jobly-fronted-vite)
 
 </div>
 
@@ -74,20 +74,20 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Saltly is an app where users can upload images, view images, and edit the color tone of an image. There is no authentication/authorization handling in the app currently, so all users can see and edit all images.
+Jobly is an app where users can search for companies, jobs, and view specific company details and the jobs offered by that company. There is no authentication/authorization handling in the app currently, so all users can see all jobs and companies.
 
-This is a full-stack application written in Python using Flask as the web framework and Flask-SQLAlchemy as an Object Relational Mapper (ORM). This is a traditional HTML serving application that incorporates the use of AWS S3 cloud storage to save the image files and keep them seperate from the backend PostgreSQL database.
+This repo holds the frontend of a full-stack app written in TypeScript using React as the frontend and Vite as the build tool. This frontend interacts with a RESTful API built using node/express that interacts with a Postgres DB.
 
-Deployed using Render to host the backend code and ElephantSQL to host the database.
+Deployed using Render to host both the frontend and backend code and ElephantSQL to host the database.
 
 Some tools and concepts covered during this project:
 
-* Exposure to the application development life-cycle from project ideation to deployment
-* Building a Minimal Viable Product (MVP) within a week
-* Setting up and utilizing AWS S3 cloud storage
-* Using Python library Pillow to handle image files
-* Form validation and error handling with Flask-WTForms
-* Rendering HTML dynamically with the use of Jinja
+* Using Vite as a drop in build tool replacement for CRA
+* Using Vite's built in template to start a React-TS project
+* First time using TS for the entirety of a project
+* Built and organized the component hierarchy to seperate concerns
+* Utilized Vitest, testing-library, and jest to build tests
+* Focused on building extensive unit/integration testing and achieving near 100% coverage
 * Styling with Bootstrap and traditional CSS
 
 
@@ -97,8 +97,8 @@ Some tools and concepts covered during this project:
 
 
 ### Built With
-
-* [![Python][Python.com]][Python-url]
+In Progress
+<!-- * [![Python][Python.com]][Python-url]
 * [![JavaScript][JavaScript.com]][JavaScript-url]
 * [![HTML5][HTML5.com]][HTML5-url]
 * [![CSS3][CSS3.com]][CSS3-url]
@@ -110,7 +110,7 @@ Some tools and concepts covered during this project:
 * [![WTForms][WTForms.com]][WTForms-url]
 * [![AWS][AWS.com]][AWS-url]
 * [![Render][Render.com]][Render-url]
-* [![ElephantSQL][ElephantSQL.com]][ElephantSQL-url]
+* [![ElephantSQL][ElephantSQL.com]][ElephantSQL-url] -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -118,13 +118,13 @@ Some tools and concepts covered during this project:
 
 <!-- GETTING STARTED -->
 ## Getting Started
-
-To get a local copy up and running follow these simple example steps. Note that you will need to connect your own AWS S3 bucket to allow the app to fully function.
+In Progress
+<!-- To get a local copy up and running follow these simple example steps. Note that you will need to connect your own AWS S3 bucket to allow the app to fully function.
 
 1. Clone this repo at your desired directory.
 
   ```sh
-  $ git clone https://github.com/nickorsi/satly.git
+  $ git clone https://github.com/nickorsi/react-ts-jobly-fronted-vite.git
   ```
 2. Within this new directory, create a virtual environment.
 
@@ -169,20 +169,20 @@ Seed the database with some sample images. This requires PostgreSQL to be instal
    ```
    Note: This will create a DB called saltly and is assuming you don't have another active db called this.
 
-2. Now add the images within the "static/starter_images" directory to the connected AWS S3 bucket.
+2. Now add the images within the "static/starter_images" directory to the connected AWS S3 bucket. -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- ROADMAP -->
 ## Roadmap
-
-- [ ] Add more color tone editing options for the images
+In progress
+<!-- - [ ] Add more color tone editing options for the images
 - [ ] Add a "Revert" option to go back to the original image
 - [ ] Add authentication/authorization so users can make photos public and only users can edit their images
 - [ ] Make the site responsive
 - [ ] Find a better way to cache images and still have new image edits appear without hard refresh
-  - Current work around is to make every image url unique, preventing caching but allowing edited photos to appear without hard refresh
+  - Current work around is to make every image url unique, preventing caching but allowing edited photos to appear without hard refresh -->
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -201,11 +201,10 @@ Nick Orsi
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
-This was built as part of the [Rithm School](https://www.rithmschool.com/) curriculum in February 2024.
+This was built with inspiration from the [Rithm School](https://www.rithmschool.com/) curriculum.
 
-* [Matt Smida](https://github.com/mattsmida): Co Author
 * [Best README Template](https://github.com/othneildrew/Best-README-Template)
-* [Mardown Badges](https://github.com/Ileriayo/markdown-badges)
+* [Markdown Badges](https://github.com/Ileriayo/markdown-badges)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

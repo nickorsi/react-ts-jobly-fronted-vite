@@ -78,7 +78,7 @@ Jobly is an app where users can search for companies, jobs, and view specific co
 
 This repo holds the frontend of a full-stack app written in TypeScript using React as the frontend and Vite as the build tool. This frontend interacts with a RESTful API built using node/express that interacts with a Postgres DB.
 
-Deployed using Render to host both the frontend and backend code and ElephantSQL to host the database.
+<!-- Deployed using Render to host both the frontend and backend code and ElephantSQL to host the database. -->
 
 Some tools and concepts covered during this project:
 

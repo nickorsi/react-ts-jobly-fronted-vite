@@ -24,9 +24,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/nickorsi/react-ts-jobly-fronted-vite">
-    <video controls width="250">
-      <source src="static/react-ts-jobly-fronted-vite_demo.mp4" type="video/mp4" />
-    </video>
+    <img src="static/react-ts-jobly-fronted-vite_demo.gif" alt="App Demo Gif">
   </a>
   <p align="center">
     A Job Board app for all your job needs!

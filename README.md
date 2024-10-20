@@ -29,7 +29,7 @@
   <p align="center">
     A Job Board app for all your job needs!
     <br />
-    <!-- <a href="https://saltly.onrender.com">View Demo</a> -->
+    <a href="https://react-ts-jobly-fronted-vite.onrender.com/">View Demo</a>
     ·
     <a href="https://github.com/nickorsi/react-ts-jobly-fronted-vite/issues">Report Bug</a>
     ·
@@ -59,6 +59,9 @@
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
+       <ul>
+        <li><a href="#running-tests">Built With</a></li>
+      </ul>
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -140,6 +143,19 @@ To get a local copy up and running follow these steps.
   ```
 4. Use the link provided in the terminal to interact with the site in your browser.
 
+### Running Tests
+To run the provided automated tests, navigate to the project directory and run this script in the terminal.
+
+  ```sh
+  $ npm run test
+  ```
+
+To see the test coverage provided by the automated tests, run this script in the terminal.
+
+  ```sh
+  $ npm run coverage
+  ```
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -149,6 +165,7 @@ To get a local copy up and running follow these steps.
 <!-- ROADMAP -->
 ## Roadmap
 In progress
+- [ ] Add either offset based pagination or cursor based pagination to companies and jobs pages
 - [ ] Add ability to sign up and create a profile for verification of users
 - [ ] Add ability for authorized users to add jobs and companies
 - [ ] Add ability for users to apply to jobs
@@ -159,11 +176,12 @@ In progress
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+
 <!-- CONTACT -->
 ## Contact
 
 Nick Orsi
-* [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" alt="Linkedin Logo">](https://www.linkedin.com/in/nicholas-orsi-18ab8382/)
+* [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" alt="Linkedin Logo">](https://www.linkedin.com/in/nicholas-orsi/)
 * [www.nickorsi.com](https://www.nickorsi.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

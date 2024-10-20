@@ -89,7 +89,7 @@ Some tools and concepts covered during this project:
 * Using Vite as a drop in build tool replacement for CRA
 * Using Vite's built in template to start a React-TS project
 * First time using TS for the entirety of a project
-* Built and organized the component hierarchy to seperate concerns
+* Built and organized the component hierarchy to separate concerns
 * Utilized Vitest, testing-library, and jest to build tests
 * Focused on building extensive unit/integration testing and achieving near 100% coverage
 * Styling with Bootstrap and traditional CSS
@@ -205,7 +205,7 @@ This was built with inspiration from the [Rithm School](https://www.rithmschool.
 [Vite-url]: https://vite.dev/
 [React.com]: https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB
 [React-url]: https://react.dev/
-[TypeScript]: https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white
+[TypeScript.com]: https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white
 [TypeScript-url]: https://www.typescriptlang.org/
 [HTML5.com]: https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white
 [HTML5-url]: https://developer.mozilla.org/en-US/docs/Web/HTML

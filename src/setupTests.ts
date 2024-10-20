@@ -3,7 +3,7 @@ import { vi, expect, afterEach } from "vitest";
 import { cleanup } from '@testing-library/react';
 import * as matchers from '@testing-library/jest-dom/matchers';
 import { JoblyApi } from "./api/api.ts";
-
+import '@testing-library/jest-dom/vitest'; // This import allows the types to finallys be recognize and not impact the
 
 // import '@testing-library/jest-dom';
 // Have extending the matchers on the expect from vitest, but intellisense does

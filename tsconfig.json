@@ -10,9 +10,10 @@
   ],
   "compilerOptions": {
     "types": ["vitest", "jest", "@testing-library/jest-dom"],
+    "noEmit": true,
   },
   "include": [
     "./jest-setup.ts",
-    "./vitest.d.ts"
+    "./vitest.d.ts",
   ],
 }

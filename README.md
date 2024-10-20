@@ -80,7 +80,7 @@ This repo holds the frontend code of this full-stack app and is written in TypeS
 
 Below is a diagram showing the basic component hierarchy currently used for the frontend.
 
-<img src="/static/Jobly React Component Hierarchy.pdf" alt="Component hierarchy diagram">
+<img src="/static/Jobly React Component Hierarchy.png" alt="Component hierarchy diagram">
 
 The demo site has been deployed using Render to host both the frontend and backend code and ElephantSQL to host the database.
 

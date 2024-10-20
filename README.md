@@ -59,9 +59,6 @@
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#seeding-data">Seeding Data</a></li>
-      </ul>
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -76,9 +73,13 @@
 
 Jobly is an app where users can search for companies, jobs, and view specific company details and the jobs offered by that company. There is no authentication/authorization handling in the app currently, so all users can see all jobs and companies.
 
-This repo holds the frontend of a full-stack app written in TypeScript using React as the frontend and Vite as the build tool. This frontend interacts with a RESTful API built using node/express that interacts with a Postgres DB.
+This repo holds the frontend code of this full-stack app and is written in TypeScript using React as the frontend and Vite as the build tool. This code interacts with the ![Jobly Backend](https://github.com/nickorsi/jobly-backend), a RESTful API built using node/express that connects to a Postgres DB.
 
-<!-- Deployed using Render to host both the frontend and backend code and ElephantSQL to host the database. -->
+Below is a diagram showing the basic component hierarchy currently used for the frontend.
+
+<img src="static/Jobly React Component Hierarchy.pdf" alt="Component hierarchy diagram">
+
+The demo site has been deployed using Render to host both the frontend and backend code and ElephantSQL to host the database.
 
 Some tools and concepts covered during this project:
 
@@ -97,20 +98,20 @@ Some tools and concepts covered during this project:
 
 
 ### Built With
-In Progress
-<!-- * [![Python][Python.com]][Python-url]
-* [![JavaScript][JavaScript.com]][JavaScript-url]
+* [![Vite][Vite.com]][Vite-url]
+* [![React][React.com]][React-url]
+* [![TypeScript][TypeScript.com]][TypeScript-url]
 * [![HTML5][HTML5.com]][HTML5-url]
 * [![CSS3][CSS3.com]][CSS3-url]
 * [![PostgreSQL][PostgreSQL.com]][PostgreSQL-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![Flask][Flask.com]][Flask-url]
-* [![SQLAlchemy][SQLAlchemy.com]][SQLAlchemy-url]
-* [![Jinja][Jinja.com]][Jinja-url]
-* [![WTForms][WTForms.com]][WTForms-url]
-* [![AWS][AWS.com]][AWS-url]
+* [![Vitest][Vitest.com]][Vitest-url]
+* [![Jest][Jest.com]][Jest-url]
+* [![Testing][Testing.com]][Testing-url]
 * [![Render][Render.com]][Render-url]
-* [![ElephantSQL][ElephantSQL.com]][ElephantSQL-url] -->
+* [![ElephantSQL][ElephantSQL.com]][ElephantSQL-url]
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -118,71 +119,41 @@ In Progress
 
 <!-- GETTING STARTED -->
 ## Getting Started
-In Progress
-<!-- To get a local copy up and running follow these simple example steps. Note that you will need to connect your own AWS S3 bucket to allow the app to fully function.
+To get a local copy up and running follow these steps.
 
-1. Clone this repo at your desired directory.
+1. Go to the ![Jobly Backend](https://github.com/nickorsi/jobly-backend) repo to run the backend for this app locally.
+
+2. Using the terminal, clone this repo at your desired directory.
 
   ```sh
   $ git clone https://github.com/nickorsi/react-ts-jobly-fronted-vite.git
   ```
-2. Within this new directory, create a virtual environment.
+2. Within this new directory, install the dependencies.
 
   ```sh
-  $ python3 -m venv venv
+  $ npm install
   ```
-3. Activate the venv.
+3. Start up the frontend code.
 
   ```sh
-  $ source venv/bin/activate
+  $ npm run dev
   ```
-4. Install the requirements saved within the requirements.txt file.
+4. Use the link provided in the terminal to interact with the site in your browser.
 
-  ```sh
-  (venv) $ pip3 install -r requirements.txt
-  ```
-5. Run server.
 
-  ```sh
-  (venv) $ flask run
-  ```
-  Note: Mac users may need to run the flask server on port 5001 using the below command.
-
-    ```sh
-    (venv) $ flask run -p 5001
-    ```
-
-6. Assign the AWS S3 tokens in a .env file, REMEMBER TO ADD THIS TO YOUR .gitignore FILE!
-  ```python
-    AWS_ACCESS_KEY_ID='Your AWS Access Key ID'
-    AWS_SECRET_ACCESS_KEY='Your AWS Secrete Access Key'
-    S3_BUCKET='Your S3 Bucket Name'
-  ```
-
-### Seeding Data
-
-Seed the database with some sample images. This requires PostgreSQL to be installed.
-
-1. Fills the database with the sql file:
-   ```sh
-   (venv) $ psql - f seedNO.sql
-   ```
-   Note: This will create a DB called saltly and is assuming you don't have another active db called this.
-
-2. Now add the images within the "static/starter_images" directory to the connected AWS S3 bucket. -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 
 <!-- ROADMAP -->
 ## Roadmap
 In progress
-<!-- - [ ] Add more color tone editing options for the images
-- [ ] Add a "Revert" option to go back to the original image
-- [ ] Add authentication/authorization so users can make photos public and only users can edit their images
+- [ ] Add ability to sign up and create a profile for verification of users
+- [ ] Add ability for authorized users to add jobs and companies
+- [ ] Add ability for users to apply to jobs
 - [ ] Make the site responsive
-- [ ] Find a better way to cache images and still have new image edits appear without hard refresh
-  - Current work around is to make every image url unique, preventing caching but allowing edited photos to appear without hard refresh -->
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -212,10 +183,12 @@ This was built with inspiration from the [Rithm School](https://www.rithmschool.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[Python.com]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
-[Python-url]: https://www.python.org/
-[JavaScript.com]: https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E
-[JavaScript-url]: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+[Vite.com]:https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white
+[Vite-url]: https://vite.dev/
+[React.com]: https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB
+[React-url]: https://react.dev/
+[TypeScript]: https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white
+[TypeScript-url]: https://www.typescriptlang.org/
 [HTML5.com]: https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white
 [HTML5-url]: https://developer.mozilla.org/en-US/docs/Web/HTML
 [CSS3.com]: https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white
@@ -224,16 +197,12 @@ This was built with inspiration from the [Rithm School](https://www.rithmschool.
 [PostgreSQL-url]: https://www.postgresql.org/
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
-[Flask.com]: https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white
-[Flask-url]: https://flask.palletsprojects.com/en/3.0.x/
-[SQLAlchemy.com]: https://img.shields.io/badge/SQLAlchemy-%23D63113?style=for-the-badge
-[SQLAlchemy-url]: https://flask-sqlalchemy.palletsprojects.com/en/3.1.x/
-[Jinja.com]: https://img.shields.io/badge/jinja-white.svg?style=for-the-badge&logo=jinja&logoColor=black
-[Jinja-url]: https://jinja.palletsprojects.com/en/3.1.x/
-[WTForms.com]: https://img.shields.io/badge/WTForms-blue
-[WTForms-url]: https://flask-wtf.readthedocs.io/en/1.2.x/
-[AWS.com]: https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white
-[AWS-url]: https://aws.amazon.com/free/?gclid=CjwKCAjwte-vBhBFEiwAQSv_xQ9cNbAh7bqze8OHPqAjkwd9WAcrT9ebcC_gjiMhb5iNz2KDvq9QARoCrkkQAvD_BwE&trk=fce796e8-4ceb-48e0-9767-89f7873fac3d&sc_channel=ps&ef_id=CjwKCAjwte-vBhBFEiwAQSv_xQ9cNbAh7bqze8OHPqAjkwd9WAcrT9ebcC_gjiMhb5iNz2KDvq9QARoCrkkQAvD_BwE:G:s&s_kwcid=AL!4422!3!592542020599!e!!g!!aws!1644045032!68366401852&all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all
+[Vitest.com]: https://img.shields.io/badge/-Vitest-252529?style=for-the-badge&logo=vitest&logoColor=FCC72B
+[Vitest-url]: https://vitest.dev/
+[Jest.com]: https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white
+[Jest-url]: https://jestjs.io/
+[Testing.com]: https://img.shields.io/badge/-TestingLibrary-%23E33332?style=for-the-badge&logo=testing-library&logoColor=white
+[Testing-url]: https://testing-library.com/
 [Render.com]: https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white
 [Render-url]: https://render.com/
 [ElephantSQL.com]: https://img.shields.io/badge/ElephantSQL-%233F9BBF?style=for-the-badge

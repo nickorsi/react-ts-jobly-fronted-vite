@@ -1,7 +1,11 @@
 import {describe, expect, it} from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import { mockedGetCompany } from "../setupTests.ts";
+import {
+    mockedGetCompany,
+    mockedGetCompanies,
+    mockedGetJobs
+} from "../setupTests.ts";
 
 import RoutesList from "./RoutesList.tsx";
 
@@ -43,6 +47,30 @@ describe("Test Individual Routes", function() {
         ).toBeInTheDocument();
     });
     it("renders the companies page correctly", async function() {
+        mockedGetCompanies.mockResolvedValue([
+            {
+                handle: "c1",
+                name: "Company 1",
+                description: "Description 1",
+                numEmployees: 1,
+                logoUrl: "http//c1.img",
+              },
+              {
+                handle: "c2",
+                name: "Company 2",
+                description: "Description 2",
+                numEmployees: 2,
+                logoUrl: "http//c2.img",
+              },
+              {
+                handle: "c3",
+                name: "Company 3",
+                description: "Description 3",
+                numEmployees: 3,
+                logoUrl: "http//c3.img",
+              },
+        ]);
+
         render(
             <MemoryRouter initialEntries={["/companies"]}>
                 <RoutesList ></RoutesList>
@@ -86,6 +114,33 @@ describe("Test Individual Routes", function() {
         });
     });
     it("renders the jobs page correctly", async function() {
+        mockedGetJobs.mockResolvedValue([
+            {
+              id: 1,
+              title: "Job 1",
+              salary: 1,
+              equity: "1",
+              companyHandle: "c1",
+              companyName: "Company 1",
+            },
+            {
+              id: 2,
+              title: "Job 2",
+              salary: 2,
+              equity: "2",
+              companyHandle: "c2",
+              companyName: "Company 2",
+            },
+            {
+              id: 3,
+              title: "Job 3",
+              salary: 3,
+              equity: "3",
+              companyHandle: "c3",
+              companyName: "Company 3",
+            },
+        ]);
+
         render(
             <MemoryRouter initialEntries={["/jobs"]}>
                 <RoutesList ></RoutesList>

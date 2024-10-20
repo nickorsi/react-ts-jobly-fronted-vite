@@ -76,11 +76,11 @@
 
 Jobly is an app where users can search for companies, jobs, and view specific company details and the jobs offered by that company. There is no authentication/authorization handling in the app currently, so all users can see all jobs and companies.
 
-This repo holds the frontend code of this full-stack app and is written in TypeScript using React as the frontend and Vite as the build tool. This code interacts with the ![Jobly Backend](https://github.com/nickorsi/jobly-backend), a RESTful API built using node/express that connects to a Postgres DB.
+This repo holds the frontend code of this full-stack app and is written in TypeScript using React as the frontend and Vite as the build tool. This code interacts with the [Jobly Backend](https://github.com/nickorsi/jobly-backend), a RESTful API built using node/express that connects to a Postgres DB.
 
 Below is a diagram showing the basic component hierarchy currently used for the frontend.
 
-<img src="static/Jobly React Component Hierarchy.pdf" alt="Component hierarchy diagram">
+<img src="/static/Jobly React Component Hierarchy.pdf" alt="Component hierarchy diagram">
 
 The demo site has been deployed using Render to host both the frontend and backend code and ElephantSQL to host the database.
 

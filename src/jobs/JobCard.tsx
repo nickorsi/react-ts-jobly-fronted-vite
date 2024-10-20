@@ -1,4 +1,4 @@
-import { JobDataFromAPI } from "./JobList"
+import { JobDataFromAPI } from "./JobList";
 import './JobCard.css';
 
 /**

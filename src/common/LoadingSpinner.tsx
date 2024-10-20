@@ -1,4 +1,4 @@
-import "./LoadingSpinner.css"
+import "./LoadingSpinner.css";
 
 /**
  * LoadingSpinner component renders a dynamic spinner using bootstrap resources

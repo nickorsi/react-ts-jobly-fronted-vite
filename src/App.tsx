@@ -1,8 +1,7 @@
-import React from 'react'
 import "./App.css";
-import NavBar from './nav/NavBar'
-import RoutesList from './nav/RoutesList'
-import { BrowserRouter } from 'react-router-dom'
+import NavBar from './nav/NavBar';
+import RoutesList from './nav/RoutesList';
+import { BrowserRouter } from 'react-router-dom';
 
 /**
  * The main App component for Jobly.

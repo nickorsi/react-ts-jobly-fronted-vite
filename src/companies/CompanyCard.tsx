@@ -1,17 +1,16 @@
-import React from "react";
 import { CompanyDataFromAPI } from "./CompanyList";
 import './CompanyCard.css';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 /**
  * CompanyCard component that renders information about the company.
  *
- * Takes props {handle, name, description, numEmployees, logoURL} as props
+ * Takes props {handle, name, description, logoURL} as props
  *
  * CompanyList -> CompanyCard
  */
 function CompanyCard(
-    {handle, name, description, numEmployees, logoUrl}: CompanyDataFromAPI
+    {handle, name, description, logoUrl}: CompanyDataFromAPI
 ) {
 
     return (
